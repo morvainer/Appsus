@@ -6,7 +6,6 @@
 @import '../css/cmps-general/user-msg.css';
 
 /* KEEP */
-
+@import '../css/apps/keep/main-notes.css';
 /* MAIL */
 @import '../css/apps/mail/EmailApp.css';
-
