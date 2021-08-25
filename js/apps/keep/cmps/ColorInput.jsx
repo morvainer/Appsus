@@ -8,6 +8,7 @@ export function ColorInput({ handleChange }) {
             key={color}
             onClick={() => handleChange(color)}
             className='input-pick'
+            style={{ backgroundColor: color }}
           ></article>
         ))}
       </section>

@@ -3,6 +3,7 @@ import { NoteImage } from './note-image.jsx';
 import { NoteVideo } from './note-video.jsx';
 import { NoteTodo } from './note-todos.jsx';
 import { ColorInput } from './ColorInput.jsx';
+import { noteService } from '../services/note.service.js';
 
 export class NotePreview extends React.Component {
   state = {
@@ -21,11 +22,9 @@ export class NotePreview extends React.Component {
   }
 
   handleChange = (color) => {
-    // this.setState((prevState) => ({ ...prevState, backgroundColor: color }));
-  };
-
-  onRemoveNote = (note) => {
-    //   removeNote()
+    this.setState((prevState) => ({
+      note: { ...prevState.note, ['backgroundColor']: color },
+    }));
   };
 
   render() {
@@ -54,12 +53,14 @@ export class NotePreview extends React.Component {
       >
         {/* <DynamicCmp note={note} /> */}
 
-        {note.type === 'note-txt' && <NoteTxt note={note} />}
-        {note.type === 'note-img' && <NoteImage note={note} />}
-        {/* {note.type === 'note-video' && <NoteVideo note={note} />} */}
-        {note.type === 'note-todos' && <NoteTodo note={note} />}
+        {note.type === 'text' && <NoteTxt note={note} />}
+        {note.type === 'image' && <NoteImage note={note} />}
+        {note.type === 'video' && <NoteVideo note={note} />}
+        {note.type === 'todo' && <NoteTodo note={note} />}
         <div className='note-preview-btns'>
-          {/* <button onClick={() => this.onRemoveNote(note.id)}>-</button> */}
+          <button onClick={() => this.props.handleRemoveNote(note.id)}>
+            -
+          </button>
         </div>
         <ColorInput handleChange={this.handleChange} />
       </article>

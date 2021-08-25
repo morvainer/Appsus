@@ -1,0 +1,17 @@
+export class ToDoItem extends React.Component {
+  state = {
+    isFinished: false,
+  };
+  render() {
+    const { isFinished } = this.state;
+    const { todo } = this.props;
+    return (
+      <li
+        className={isFinished ? 'finished' : ''}
+        onClick={() => this.setState({ isFinished: !isFinished })}
+      >
+        {todo}
+      </li>
+    );
+  }
+}

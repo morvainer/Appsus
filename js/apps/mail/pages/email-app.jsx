@@ -1,5 +1,3 @@
-// const { Link } = ReactRouterDOM
-
 import { EmailList } from "./email-list.jsx"
 import { emailService } from "../services/email.service.js"
 
