@@ -1,5 +1,10 @@
 export class NoteList extends React.Component {
   render() {
-    return <h1>NoteList</h1>;
+    return (
+      <div>
+        <h2>GIT COMMIT</h2>
+        <h1>NoteList</h1>
+      </div>
+    );
   }
 }
