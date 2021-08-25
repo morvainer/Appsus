@@ -1,16 +1,11 @@
 const Router = ReactRouterDOM.HashRouter;
 const { Route, Switch } = ReactRouterDOM;
-// import { BookApp } from './pages/BookApp.jsx';
-// import { Home } from './pages/Home.jsx';
-// import { About } from './pages/About.jsx';
-// import { AppHeader } from './js/cmps/AppHeader.jsx';
-import { AppHeader } from './js/cmps/app-header.jsx';
-// import { BookDetails } from './pages/BookDetails.jsx';
-// import { BookAdd } from './pages/BookAdd.jsx';
-// import { UserMsg } from './cmps/UserMsg.jsx';
-import { Home } from './js/pages/app-home.jsx';
 
-// Simple React Component
+import { AppHeader } from './js/cmps-general/app-header.jsx';
+import { Home } from './js/pages-general/app-home.jsx';
+import { EmailApp } from './js/apps/mail/pages/email-app.jsx';
+import { NoteApp } from './js/apps/keep/pages/note-details.jsx';
+
 export function App() {
   return (
     <Router>
@@ -19,6 +14,8 @@ export function App() {
       </header>
       <main>
         <Switch>
+          <Route path='/note' component={NoteApp} />
+          <Route path='/email' component={EmailApp} />
           <Route path='/' component={Home} />
         </Switch>
         {/* <UserMsg /> */}

@@ -11,8 +11,8 @@ class _AppHeader extends React.Component {
           <NavLink exact to='/'>
             Home
           </NavLink>
-          {/* <NavLink to='/'>Keep</NavLink> */}
-          {/* <NavLink to='/book'>Mail</NavLink> */}
+          <NavLink to='/email'>Mail</NavLink>
+          <NavLink to='/note'>Note App</NavLink>
           {/* <NavLink to='/book'>Book</NavLink> */}
           {/* <NavLink to='/about'>About</NavLink> */}
         </nav>
