@@ -1,25 +1,19 @@
 
 
+export function EmailPreview (email) {
 
-export class EmailPreview extends React.Component {
-
-    state = {
-      
-
-    }
-
-    getTextToShow = (text) => {
+    // const getTextToShow = (text) => {
         
-    }
+    // }
 
    
 
-    render() {
-        // const { isLongTxtShown } = this.state
-        
-        return <div className="email-preview">
-         
-        </div>
-    }
+    return (
+        <article className="book-preview">
+            name
+            {/* <h3>Name - {email.name}</h3> */}
+            {/* <h3>Title - {email.title}</h3> */}
+        </article>
+    )
 
 }

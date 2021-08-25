@@ -8,4 +8,5 @@
 /* KEEP */
 @import '../css/apps/keep/main-notes.css';
 /* MAIL */
-@import '../css/apps/mail/EmailApp.css';
+
+@import '../css/apps/mail/EmailMain.css';
