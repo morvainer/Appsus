@@ -1,24 +1,35 @@
-// const Router = ReactRouterDOM.HashRouter;
-const { Route, Switch, Aside } = ReactRouterDOM;
+import { EmailCompose } from "./cmps/email-compose.jsx";
+import { EmailApp } from "./pages/email-app.jsx";
+import { Aside } from './cmps/aside.jsx'
 
-import { EmailDetails } from '../js/apps/mail/pages/email-details.jsx';
-import {EmailList } from '../js/apps/mail/pages/email-list.jsx';
-import { EmailApp } from '../js/apps/mail/pages/email-app.jsx';
-// import { NoteApp } from './js/apps/keep/pages/note-app.jsx';
+const { Route, Switch } = ReactRouterDOM;
 
-export function RootCmpEmail() {
-  return (
-   
+
+export class RootCmpEmail extends React.Component {
+
+  state = {
+    isComposeShown: false
+  }
+
+
+  toggleModal = () => {
+    this.setState(prevState => ({ isComposeShown: !prevState.isComposeShown }))
+  }
+
+  render() {
+
+    return (
+
       <main>
-      <Aside />
+        <Aside toggleCompose={this.toggleModal} />
+        {this.state.isComposeShown && <EmailCompose />}
         <Switch>
           {/* <Route component={EmailDetails} path='/email/details' /> */}
-          <Route component={EmailList} path='/email/list' />
-          {/* <Route component={EmailApp} path='/email/app'  /> */}
+          {/* <Route component={EmailList} path='/email/list' /> */}
+          <Route component={EmailApp} path='/email' />
         </Switch>
       </main>
-    
-  );
-}
 
-// :emailId
+    );
+  }
+}

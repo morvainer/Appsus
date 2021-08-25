@@ -1,6 +1,6 @@
 
 
-export function EmailPreview (email) {
+export function EmailPreview ({email}) {
 
     // const getTextToShow = (text) => {
         
@@ -9,10 +9,11 @@ export function EmailPreview (email) {
    
 
     return (
-        <article className="book-preview">
-            name
-            {/* <h3>Name - {email.name}</h3> */}
-            {/* <h3>Title - {email.title}</h3> */}
+        <article className="email-preview">
+            {/* {console.log('email in email-preview is', email)} */}
+            <div className="email-preview-div"> Name: {email.name} </div> 
+            <div className="email-preview-div"> Title: {email.title}</div>
+           
         </article>
     )
 

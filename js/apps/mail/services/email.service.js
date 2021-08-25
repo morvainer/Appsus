@@ -1,16 +1,18 @@
-import { storageService } from "../services-general/storage.service.js"
-import { utilService } from "../services-general/util.service.js" 
+import { storageService } from '../../../services-general/storage.service.js'
+import { utilService } from '../../../services-general/util.service.js'
 export const emailService = {
     query,
     addEmail
-    
+
 }
 const KEY = 'emailsDB';
-let gEmails=[
-    {id: 1, name: 'mor', title: 'this is a title'},
-    {id: 2, name: 'mor2', title: 'this is a title2'},
-    {id: 3, name: 'mor3', title: 'this is a title3'}
-];
+// let gEmails = [];
+let gEmails = storageService.loadFromStorage(KEY) || []
+// let gEmails=[
+//     {id: 1, name: 'mor', title: 'this is a title'},
+//     {id: 2, name: 'mor2', title: 'this is a title2'},
+//     {id: 3, name: 'mor3', title: 'this is a title3'}
+// ];
 
 const email = {
     id: 'e101',
@@ -21,16 +23,17 @@ const email = {
     to: 'momo@momo.com'
 }
 
-const loggedinUser = { 
-    email: 'user@appsus.com', 
-    fullname: 'Mahatma Appsus' 
+const loggedinUser = {
+    email: 'user@appsus.com',
+    fullname: 'Mahatma Appsus'
 }
 
-const criteria = { status: 'inbox/sent/trash/draft', 
-txt: 'puki', //no need to support complex text search 
-isRead: true, // (optional property, if missing: show all) 
-isStared: true, // (optional property, if missing: show all) 
-lables: ['important', 'romantic'] // has any of the labels 
+const criteria = {
+    status: 'inbox/sent/trash/draft',
+    txt: 'puki', //no need to support complex text search 
+    isRead: true, // (optional property, if missing: show all) 
+    isStared: true, // (optional property, if missing: show all) 
+    lables: ['important', 'romantic'] // has any of the labels 
 }
 
 
@@ -51,30 +54,38 @@ function query() {
 }
 
 
-function addEmail(){
-_createEmail();
+function addEmail() {
+    let nameOfSender = prompt('enter name');
+    let nameOfTitle = prompt('enter title');
+    _createEmail(nameOfSender, nameOfTitle);
+    console.log('gEmails', gEmails);
+    // storageService.saveToStorage('emailsDB', gEmails)
 }
 
-function _createEmail() {
-    
-    const email= {
-        // id: utilService.makeId(),
-        id: 1,
-        name: 'mor',
-        title: 'this is title',
+function _createEmail(name, title) {
+
+    const email = {
+        id: utilService.makeId(),
+        // id: 1,
+        name,
+        title,
         content: 'this is content',
         // content: utilService.makeLorem(),
     }
     // _saveBooksToStorage()
     gEmails.push(email);
+    storageService.saveToStorage('emailsDB', gEmails)
+    // console.log('gEmails', gEmails);
+    // _saveEmailToStorage()
+    // storageService.saveToStorage(KEY, gEmails)
     return Promise.resolve();
 }
 
-function deleteEmail(){
+function deleteEmail() {
 
 }
 
-function updateEmail(){
+function updateEmail() {
 
 }
 

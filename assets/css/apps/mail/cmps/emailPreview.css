@@ -1,0 +1,11 @@
+
+
+.email-preview-div{
+    display: inline;
+  
+}
+
+article.email-preview{
+    border: black solid 1px;
+    margin: 10px;
+}

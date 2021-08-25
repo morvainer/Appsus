@@ -1,25 +1,16 @@
-<<<<<<< HEAD
-import { EmailList } from '../js/apps/mail/cmps/email-list.jsx';
-=======
+// const { Link } = ReactRouterDOM
+
 import { EmailList } from "./email-list.jsx"
 import { emailService } from "../services/email.service.js"
 
->>>>>>> 5a092e8833a6dc00f0939a8bdf56a420a372a248
 // const Router = ReactRouterDOM.HashRouter;
 // const { Route, Switch, Aside } = ReactRouterDOM;
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 5a092e8833a6dc00f0939a8bdf56a420a372a248
 export class EmailApp extends React.Component {
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 5a092e8833a6dc00f0939a8bdf56a420a372a248
   state = {
-    emails: [],
+    emails: null,
+    selectedEmail: null
   };
 
   componentDidMount() {
@@ -27,44 +18,31 @@ export class EmailApp extends React.Component {
     // console.log('books:', this.state.books);
   }
   // getTextToShow = (text) => {
-<<<<<<< HEAD
-
-  // }
-
-=======
       
   // }
   loadEmails = () => {
     emailService.query().then((emails) => {
-        this.setState({ emails }, () => { console.log('emails', emails) })
+        this.setState({ emails }, () => { console.log('emails in load emails', emails) })
     });
 }; 
 
+onAddEmail = () =>{
+  emailService.addEmail();
+}
 
-
->>>>>>> 5a092e8833a6dc00f0939a8bdf56a420a372a248
   render() {
     const { emails } = this.state;
+    if (!emails) return <h2>Loading...</h2> 
     return (
-<<<<<<< HEAD
-      <div className='email-app'>
-        <h1>This is my email app</h1>
-        <EmailList />
-        <h2>asdfafd</h2>
-        <Aside />
-        <Switch>
-          <Route />
-          <Route />
-          <Route component={EmailDetails} path='/email/:emailsId' />
-          <Route component={EmailList} path='/email' />
-        </Switch>
-=======
       <div className="email-app">
         <section>This is my email app</section>
+        <button onClick={this.onAddEmail} >Add Email</button>
+        {/* <Link to="/email/addEmail">Add Email </Link> */}
+        {/* {console.log('email in render are:', emails)} */}
+        
         <EmailList emails={emails}/>
         <h2>This is section after email list</h2>
        
->>>>>>> 5a092e8833a6dc00f0939a8bdf56a420a372a248
       </div>
     );
   }
