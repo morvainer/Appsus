@@ -2,7 +2,6 @@ export const utilService = {
   makeId,
   makeLorem,
   getRandomIntInclusive,
-  getCurrencyIcon,
 };
 
 function makeId(length = 6) {
