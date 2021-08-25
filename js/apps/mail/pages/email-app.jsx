@@ -1,6 +1,8 @@
-import { EmailList } from "../js/apps/mail/cmps/email-list.jsx"
+import { EmailList } from "./email-list.jsx"
+import { emailService } from "../services/email.service.js"
+
 // const Router = ReactRouterDOM.HashRouter;
-const { Route, Switch, Aside } = ReactRouterDOM;
+// const { Route, Switch, Aside } = ReactRouterDOM;
 
 
 export class EmailApp extends React.Component {
@@ -12,29 +14,28 @@ export class EmailApp extends React.Component {
   }
 
   componentDidMount() {
-    // this.loadEmails();
+    this.loadEmails();
     // console.log('books:', this.state.books);
 }
   // getTextToShow = (text) => {
       
   // }
-
+  loadEmails = () => {
+    emailService.query().then((emails) => {
+        this.setState({ emails }, () => { console.log('emails', emails) })
+    });
+}; 
 
 
 
   render() {
+    const { emails } = this.state;
     return (
       <div className="email-app">
-        <h1>This is my email app</h1>
-        <EmailList/>
-        <h2>asdfafd</h2>
-        <Aside />
-        <Switch>
-          <Route />
-          <Route />
-          <Route component={EmailDetails} path='/email/:emailsId' />
-          <Route component={EmailList} path='/email' />
-        </Switch>
+        <section>This is my email app</section>
+        <EmailList emails={emails}/>
+        <h2>This is section after email list</h2>
+       
       </div>
     );
   }

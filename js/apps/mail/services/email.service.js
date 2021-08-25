@@ -1,8 +1,16 @@
-
+import { storageService } from "../services-general/storage.service.js"
+import { utilService } from "../services-general/util.service.js" 
 export const emailService = {
     query,
+    addEmail
     
 }
+const KEY = 'emailsDB';
+let gEmails=[
+    {id: 1, name: 'mor', title: 'this is a title'},
+    {id: 2, name: 'mor2', title: 'this is a title2'},
+    {id: 3, name: 'mor3', title: 'this is a title3'}
+];
 
 const email = {
     id: 'e101',
@@ -26,25 +34,40 @@ lables: ['important', 'romantic'] // has any of the labels
 }
 
 
-function query(filterBy) {
-    if (filterBy) {
-        let { name, minPrice, maxPrice } = filterBy
-        maxPrice = maxPrice ? maxPrice : Infinity
-        minPrice = minPrice ? minPrice : 0
-        const booksToShow = gBooks.filter(book => book.title.includes(name) &&
-            book.listPrice.amount >= minPrice && book.listPrice.amount <= maxPrice)
-        return Promise.resolve(booksToShow)
-    }
-    return Promise.resolve(gBooks);
+// function query(filterBy) {
+//     if (filterBy) {
+//         let { name, minPrice, maxPrice } = filterBy
+//         maxPrice = maxPrice ? maxPrice : Infinity
+//         minPrice = minPrice ? minPrice : 0
+//         const booksToShow = gBooks.filter(book => book.title.includes(name) &&
+//             book.listPrice.amount >= minPrice && book.listPrice.amount <= maxPrice)
+//         return Promise.resolve(booksToShow)
+//     }
+//     return Promise.resolve(gBooks);
+// }
+
+function query() {
+    return Promise.resolve(gEmails);
 }
 
 
 function addEmail(){
-
+_createEmail();
 }
 
-function createEmail(){
-
+function _createEmail() {
+    
+    const email= {
+        // id: utilService.makeId(),
+        id: 1,
+        name: 'mor',
+        title: 'this is title',
+        content: 'this is content',
+        // content: utilService.makeLorem(),
+    }
+    // _saveBooksToStorage()
+    gEmails.push(email);
+    return Promise.resolve();
 }
 
 function deleteEmail(){
