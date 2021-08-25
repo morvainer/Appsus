@@ -16,14 +16,17 @@ var gNotes = [
   {
     id: 'n101',
     type: 'note-txt',
+    info: { text: 'Fullstack Me Baby!' },
+    // doneAt: Date.now(),
     isPinned: true,
-    info: { txt: 'Fullstack Me Baby!' },
+    backgroundColor: 'blue',
   },
   {
     id: 'n102',
     type: 'note-img',
-    info: { url: 'http://some-img/me', title: 'Bobi and Me' },
-    style: { backgroundColor: '#00d' },
+    info: { url: 'https://picsum.photos/200/300', title: 'Bobi and Me' },
+    backgroundColor: '#00d',
+    isPinned: false,
   },
   {
     id: 'n103',
@@ -35,12 +38,22 @@ var gNotes = [
         { txt: 'Coding power', doneAt: 187111111 },
       ],
     },
+    backgroundColor: 'red',
+    isPinned: false,
   },
 ];
 
-function query() {
-  return Promise.resolve();
+function query(filterBy) {
+  if (filterBy) {
+    let { name, type } = filterBy;
+    const notesToShow = gNotes.filter((note) => {
+      return note.type === type;
+    });
+    return Promise.resolve(notesToShow);
+  }
+  return Promise.resolve(gNotes);
 }
+
 function addNote() {
   return Promise.resolve();
 }
