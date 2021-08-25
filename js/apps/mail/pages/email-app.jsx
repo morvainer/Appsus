@@ -32,7 +32,7 @@ onAddEmail = () =>{
     const { emails } = this.state;
     if (!emails) return <h2>Loading...</h2> 
     return (
-      <div className="email-app">
+      <div className="email-app main-layout">
         <section>This is my email app</section>
         <button onClick={this.onAddEmail} >Add Email</button>
         {/* <Link to="/email/addEmail">Add Email </Link> */}

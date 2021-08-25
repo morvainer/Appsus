@@ -3,3 +3,10 @@
 
 }
 
+.main-layout{
+    max-width: 800px;
+    /* max-height: 800px; */
+    height: 600px;
+    margin: 0 auto;
+    background-color: grey;
+}
