@@ -17,12 +17,10 @@ export function App() {
         <Switch>
           <Route path='/note' component={NoteApp} />
           {/* <Route path='/email' component={RootCmpEmail } /> */}
-          <Route path='/email' component={EmailApp} />
+          {/* <Route path='/email' component={EmailApp} /> */}
           <Route path='/' component={Home} />
         </Switch>
-      
       </main>
-    
     </Router>
   );
 }
