@@ -47,6 +47,10 @@ export class NoteApp extends React.Component {
     noteService.changeBackground(noteId, color).then(() => this.loadNotes());
   };
 
+  onCloneNote = (note) => {
+    noteService.cloneNote(note).then(() => this.loadNotes());
+  };
+
   render() {
     const { notes } = this.state;
     return (
@@ -63,6 +67,7 @@ export class NoteApp extends React.Component {
           onToggleEdit={this.onToggleEdit}
           onSave={this.onSave}
           onChangeBackground={this.onChangeBackground}
+          onCloneNote={this.onCloneNote}
         />
       </section>
     );

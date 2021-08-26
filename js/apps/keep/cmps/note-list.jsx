@@ -30,6 +30,7 @@ export class NoteList extends React.Component {
             onToggleEdit={this.props.onToggleEdit}
             onSave={this.props.onSave}
             onChangeBackground={this.props.onChangeBackground}
+            onCloneNote={this.props.onCloneNote}
           />
         ))}
       </div>

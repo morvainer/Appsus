@@ -75,6 +75,7 @@ export class NotePreview extends React.Component {
         </div>
         <button onClick={() => this.props.onPinNote(note)}>PIN</button>
         <button onClick={() => this.props.onToggleEdit(note)}>Edit</button>
+        <button onClick={() => this.props.onCloneNote(note)}>Clone</button>
         <ColorInput handleChange={this.handleChange} />
       </article>
     );
