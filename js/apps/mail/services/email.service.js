@@ -28,7 +28,7 @@ const loggedinUser = {
     fullname: 'Mahatma Appsus'
 }
 
-const criteria = {
+const criteria = {// for search?-------------
     status: 'inbox/sent/trash/draft',
     txt: 'puki', //no need to support complex text search 
     isRead: true, // (optional property, if missing: show all) 
@@ -54,22 +54,31 @@ function query() {
 }
 
 
-function addEmail() {
-    let nameOfSender = prompt('enter name');
-    let nameOfTitle = prompt('enter title');
-    _createEmail(nameOfSender, nameOfTitle);
+function addEmail(to, cc, bcc, subject, message) {
+    // let nameOfSender = prompt('enter name');
+    // let nameOfTitle = prompt('enter title');
+    _createEmail(to, cc, bcc, subject, message);
     console.log('gEmails', gEmails);
     // storageService.saveToStorage('emailsDB', gEmails)
 }
 
-function _createEmail(name, title) {
+function _createEmail(to, cc, bcc, subject, message) {
 
     const email = {
         id: utilService.makeId(),
         // id: 1,
-        name,
-        title,
-        content: 'this is content',
+        to,
+        from: 'User',
+        cc,
+        bcc,
+        subject,
+        message,
+        isRead: false,
+        sentAt: '3/3/3',
+        status: 'sent',
+        isStared: true
+
+        
         // content: utilService.makeLorem(),
     }
     // _saveBooksToStorage()

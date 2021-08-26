@@ -1,13 +1,13 @@
 import { EmailPreview } from "../cmps/email-preview.jsx"
 
 
-export function EmailList({ emails, isComposeShown }) {
+export function SentMailList({ emails }) {
    
     // if(!emails) return <h1>No emails</h1>
     // console.log('emails in email-list', emails);
     return (
-        <ul className="email-list">
-        <li className="email-list-li">
+        <ul className="sent-mail-list">
+        <li className="sent-mail-list-li">
            {emails.map((email) => (
         <EmailPreview key={email.id} email={email} />
       ))}
@@ -15,13 +15,3 @@ export function EmailList({ emails, isComposeShown }) {
         </ul>
     )
     }
-
-
-{/*     
-    // key={email.id}
-    
-    // <div>
-    //     <EmailPreview/>
-    //     <EmailPreview/>
-    //     <EmailPreview/>
-    // </div> */}

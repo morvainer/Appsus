@@ -1,6 +1,7 @@
 import { EmailCompose } from "./cmps/email-compose.jsx";
 import { EmailApp } from "./pages/email-app.jsx";
 import { Aside } from './cmps/aside.jsx'
+import { SentMailList } from './cmps/sent-mail-list.jsx'
 
 const { Route, Switch } = ReactRouterDOM;
 
@@ -8,7 +9,9 @@ const { Route, Switch } = ReactRouterDOM;
 export class RootCmpEmail extends React.Component {
 
   state = {
-    isComposeShown: false
+    isComposeShown: false,
+    // isMailSentShown: false
+    
   }
 
 
@@ -16,17 +19,22 @@ export class RootCmpEmail extends React.Component {
     this.setState(prevState => ({ isComposeShown: !prevState.isComposeShown }))
   }
 
+  // toggleMailsSent = () => {
+  //   this.setState(prevState => ({  isMailSentShown: !prevState. isMailSentShown }))
+  // }
+
   render() {
+    const { isComposeShown } = this.state;
 
     return (
-
-      <main>
-        <Aside toggleCompose={this.toggleModal} />
-        {this.state.isComposeShown && <EmailCompose />}
+      <main className="flex main-layout">
+        <Aside toggleCompose={this.toggleModal} className="aside-root" />
+        {isComposeShown && <EmailCompose />}
         <Switch>
           {/* <Route component={EmailDetails} path='/email/details' /> */}
           {/* <Route component={EmailList} path='/email/list' /> */}
-          <Route component={EmailApp} path='/email' />
+          {/* <Route path="/email/sentmails" component={SentMailList} /> */}
+          <Route isComposeShown={isComposeShown} component={EmailApp} className="email-app-root" path='/email' />
         </Switch>
       </main>
 

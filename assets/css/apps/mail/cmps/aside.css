@@ -1,7 +1,18 @@
 
-
+.aside-main{
+    margin: 10px; 
+}
 .aside{
     border: solid 1px black;
     display: inline-block;
     background-color: white;
+    /* position: absolute; */
+    padding: 10px;
+    /* margin: 10px; */
+}
+aside .aside{
+    margin: 10px; 
+}
+.aside-link{
+    margin-top: 6px;
 }

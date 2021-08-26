@@ -11,8 +11,9 @@ export function EmailPreview ({email}) {
     return (
         <article className="email-preview">
             {/* {console.log('email in email-preview is', email)} */}
-            <div className="email-preview-div"> Name: {email.name} </div> 
-            <div className="email-preview-div"> Title: {email.title}</div>
+            <div className="email-preview-div"> Name: {email.from} </div> 
+            <div className="email-preview-div"> Subject: {email.subject}</div>
+            <div className="email-preview-div"> Date: {email.sentAt}</div>
            
         </article>
     )

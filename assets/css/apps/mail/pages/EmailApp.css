@@ -4,9 +4,14 @@
 }
 
 .main-layout{
-    max-width: 800px;
+    max-width: 1000px;
     /* max-height: 800px; */
     height: 600px;
     margin: 0 auto;
     background-color: grey;
+    width: 100%;
+}
+
+.email-app{
+    flex-grow: 3;
 }

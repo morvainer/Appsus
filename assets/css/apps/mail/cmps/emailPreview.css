@@ -2,6 +2,9 @@
 
 .email-preview-div{
     display: inline;
+    margin: 10px;
+    color: black;
+    font-weight: bold;
   
 }
 
