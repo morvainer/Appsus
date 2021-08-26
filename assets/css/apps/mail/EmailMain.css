@@ -1,6 +1,6 @@
 
 @import '../mail/pages/EmailApp.css';
 @import '../mail/pages/EmailList.css';
-@import '../mail/cmps/emailPreview.css';
 @import '../mail/cmps/aside.css';
 @import '../mail/cmps/emailCompose.css';
+@import '../mail/cmps/emailPreview.css';

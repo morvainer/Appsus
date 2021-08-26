@@ -7,20 +7,20 @@ export class UserMsg extends React.Component {
     },
     isShown: false,
   };
-  removeEventBus;
+  // removeEventBus;
   timeoutId;
 
   componentDidMount() {
-    this.removeEventBus = eventBusService.on('user-msg', (msg) => {
-      this.setState({ msg, isShown: true }, () => {
-        if (this.timeoutId) clearTimeout(this.timeoutId);
-        this.timeoutId = setTimeout(this.onCloseMsg, 4000);
-      });
-    });
+    // this.removeEventBus = eventBusService.on('user-msg', (msg) => {
+    //   this.setState({ msg, isShown: true }, () => {
+    //     if (this.timeoutId) clearTimeout(this.timeoutId);
+    //     this.timeoutId = setTimeout(this.onCloseMsg, 4000);
+    //   });
+    // });
   }
 
   componentWillUnmount() {
-    this.removeEventBus();
+    // this.removeEventBus();
   }
 
   onCloseMsg = () => {

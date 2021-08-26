@@ -19,6 +19,9 @@ export class RootCmpEmail extends React.Component {
   toggleModal = () => {
     this.setState(prevState => ({ isComposeShown: !prevState.isComposeShown }))
   }
+  closeModal = () => {
+    this.setState({ isComposeShown: false})
+  }
 
   // toggleMailsSent = () => {
   //   this.setState(prevState => ({  isMailSentShown: !prevState. isMailSentShown }))
@@ -29,7 +32,7 @@ export class RootCmpEmail extends React.Component {
 
     return (
       <main className="flex main-layout">
-        <Aside toggleCompose={this.toggleModal} className="aside-root" />
+        <Aside toggleCompose={this.toggleModal} className="aside-root" closeModal={this.closeModal} />
         {isComposeShown && <EmailCompose  toggleCompose={this.toggleModal} />}
         <Switch>
           {/* <Route component={EmailDetails} path='/email/details' /> */}

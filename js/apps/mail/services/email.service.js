@@ -3,7 +3,8 @@ import { utilService } from '../../../services-general/util.service.js'
 export const emailService = {
     query,
     addEmail,
-    getEmailById
+    getEmailById,
+    updateEmailIsRead
 
 }
 const KEY = 'emailsDB';
@@ -60,6 +61,14 @@ function query() {
     return Promise.resolve(gEmails);
 }
 
+function updateEmailIsRead(emailId){
+    getEmailById(emailId).then((email)=>{
+        email.isRead = true
+        _saveEmailToStorage();
+    })
+ //change gEmail.isRead
+ //save to storage
+}
 
 function addEmail(to, cc, bcc, subject, message) {
     // let nameOfSender = prompt('enter name');
@@ -83,7 +92,7 @@ function _createEmail(to, cc, bcc, subject, message) {
         isRead: false,
         sentAt: '3/3/3',
         status: 'sent',
-        isStared: true
+        isStared: false
 
         
         // content: utilService.makeLorem(),
