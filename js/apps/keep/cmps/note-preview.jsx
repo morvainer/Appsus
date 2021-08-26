@@ -28,19 +28,20 @@ export class NotePreview extends React.Component {
   };
 
   render() {
-    const { note } = this.state;
+    // const { note } = this.state;
+    const { note } = this.props;
     const { removeNote } = this.props;
     if (!note) return <h2>Loading..</h2>;
     const DynamicCmp = (props) => {
       console.log(props);
       switch (props.note.type) {
-        case 'note-txt':
+        case 'text':
           return <NoteTxt {...props} />;
-        case 'note-img':
+        case 'image':
           return <NoteImage {...props} />;
-        case 'note-video':
+        case 'video':
           return <NoteVideo {...props} />;
-        case 'note-todos':
+        case 'todo':
           return <NoteTodo {...props} />;
         default:
           break;
@@ -51,6 +52,7 @@ export class NotePreview extends React.Component {
         className={'note-preview'}
         style={{ backgroundColor: note.backgroundColor }}
       >
+        {/* {!note && <DynamicCmp note={note} />} */}
         {/* <DynamicCmp note={note} /> */}
 
         {note.type === 'text' && <NoteTxt note={note} />}
@@ -62,6 +64,7 @@ export class NotePreview extends React.Component {
             -
           </button>
         </div>
+        <button onClick={() => this.props.onPinNote(note)}>PIN</button>
         <ColorInput handleChange={this.handleChange} />
       </article>
     );

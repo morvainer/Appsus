@@ -1,4 +1,5 @@
 import { NoteAdd } from '../cmps/note-add.jsx';
+import { NoteFilter } from '../cmps/note-filter.jsx';
 import { NoteList } from '../cmps/note-list.jsx';
 import { noteService } from '../services/note.service.js';
 
@@ -27,13 +28,21 @@ export class NoteApp extends React.Component {
     this.loadNotes();
   };
 
+  onPinNote = (note) => {
+    noteService.pinNote(note.id).then(() => this.loadNotes());
+  };
+
   render() {
     const { notes } = this.state;
     return (
       <section className='notes-app'>
         <h1>NoteApp</h1>
+        <NoteFilter
+          filterBy={this.state.filterBy}
+          onSetFilter={this.onSetFilter}
+        />
         <NoteAdd handleAddNote={this.handleAddNote} />
-        <NoteList notes={notes} />
+        <NoteList notes={notes} onPinNote={this.onPinNote} />
       </section>
     );
   }

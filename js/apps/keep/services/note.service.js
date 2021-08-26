@@ -8,6 +8,7 @@ export const noteService = {
   addNote,
   removeNote,
   updateNote,
+  pinNote,
 };
 
 const KEY = 'noteDB';
@@ -36,14 +37,47 @@ var gNotes = storageService.loadFromStorage(KEY) || [
     backgroundColor: 'red',
     isPinned: false,
   },
+  {
+    id: utilService.makeId(),
+    type: 'text',
+    info: { text: 'aaaaaaaaaaaaaaaaaa' },
+    // doneAt: Date.now(),
+    isPinned: false,
+    backgroundColor: 'blue',
+  },
+  {
+    id: utilService.makeId(),
+    type: 'text',
+    info: { text: 'aaaaaaaaaaaaaaaaaa' },
+    // doneAt: Date.now(),
+    isPinned: false,
+    backgroundColor: 'blue',
+  },
+  {
+    id: utilService.makeId(),
+    type: 'text',
+    info: { text: 'aaaaaaaaaaaaaaaaaa' },
+    // doneAt: Date.now(),
+    isPinned: false,
+    backgroundColor: 'blue',
+  },
+  {
+    id: utilService.makeId(),
+    type: 'text',
+    info: { text: 'aaaaaaaaaaaaaaaaaa' },
+    // doneAt: Date.now(),
+    isPinned: false,
+    backgroundColor: 'blue',
+  },
 ];
 
 function query(filterBy) {
   const notes = storageService.loadFromStorage(KEY);
-  console.log(gNotes);
   if (!notes || !notes.length) _createNotes();
+
   if (filterBy) {
     let { name, type } = filterBy;
+    if (type === 'all') return Promise.resolve(gNotes);
     const notesToShow = notes.filter((note) => {
       return note.type === type;
     });
@@ -181,4 +215,27 @@ function _createNotes() {
   }
   gNotes = notes;
   _saveNotesToStorage();
+}
+
+function pinNote(note) {
+  return togglePin(note).then(() => {
+    gNotes = gNotes.sort((a, b) => {
+      return a.isPinned === b.isPinned ? 0 : a.isPinned ? -1 : 1;
+    });
+    return Promise.resolve();
+  });
+}
+
+function togglePin(noteId) {
+  return Promise.resolve(
+    getNoteById(noteId).then((note) => {
+      note.isPinned = !note.isPinned;
+      return note;
+    })
+  );
+}
+
+function getNoteById(noteId) {
+  var note = gNotes.find((note) => note.id === noteId);
+  return Promise.resolve(note);
 }

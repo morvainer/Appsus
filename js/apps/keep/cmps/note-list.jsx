@@ -26,6 +26,7 @@ export class NoteList extends React.Component {
             key={note.id}
             note={note}
             handleRemoveNote={handleRemoveNote}
+            onPinNote={this.props.onPinNote}
           />
         ))}
       </div>
