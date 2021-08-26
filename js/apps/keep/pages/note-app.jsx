@@ -32,6 +32,21 @@ export class NoteApp extends React.Component {
     noteService.pinNote(note.id).then(() => this.loadNotes());
   };
 
+  onToggleEdit = (note) => {
+    noteService.toggleEdit(note.id).then(() => this.loadNotes());
+  };
+
+  onSave = (note) => {
+    noteService.saveEdit(note).then(() => {
+      this.onToggleEdit(note);
+      this.loadNotes();
+    });
+  };
+
+  onChangeBackground = (noteId, color) => {
+    noteService.changeBackground(noteId, color).then(() => this.loadNotes());
+  };
+
   render() {
     const { notes } = this.state;
     return (
@@ -42,7 +57,13 @@ export class NoteApp extends React.Component {
           onSetFilter={this.onSetFilter}
         />
         <NoteAdd handleAddNote={this.handleAddNote} />
-        <NoteList notes={notes} onPinNote={this.onPinNote} />
+        <NoteList
+          notes={notes}
+          onPinNote={this.onPinNote}
+          onToggleEdit={this.onToggleEdit}
+          onSave={this.onSave}
+          onChangeBackground={this.onChangeBackground}
+        />
       </section>
     );
   }

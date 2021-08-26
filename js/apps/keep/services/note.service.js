@@ -9,33 +9,40 @@ export const noteService = {
   removeNote,
   updateNote,
   pinNote,
+  saveEdit,
+  toggleEdit,
+  getNotes,
+  changeBackground,
 };
 
 const KEY = 'noteDB';
 
 var gNotes = storageService.loadFromStorage(KEY) || [
   {
-    id: 'n101',
+    id: utilService.makeId(),
     type: 'text',
     info: { text: 'Fullstack Me Baby!' },
     isPinned: true,
     backgroundColor: 'blue',
+    isEditOn: false,
   },
   {
-    id: 'n102',
+    id: utilService.makeId(),
     type: 'image',
-    info: { url: 'https://picsum.photos/200/300' },
+    info: { title: 'Bobi and Me', url: 'https://picsum.photos/200/300' },
     backgroundColor: '#00d',
     isPinned: false,
+    isEditOn: false,
   },
   {
-    id: 'n103',
+    id: utilService.makeId(),
     type: 'todo',
     info: {
       todos: ['Driving liscence', 'Coding power'],
     },
     backgroundColor: 'red',
     isPinned: false,
+    isEditOn: false,
   },
   {
     id: utilService.makeId(),
@@ -44,6 +51,7 @@ var gNotes = storageService.loadFromStorage(KEY) || [
     // doneAt: Date.now(),
     isPinned: false,
     backgroundColor: 'blue',
+    isEditOn: false,
   },
   {
     id: utilService.makeId(),
@@ -52,6 +60,7 @@ var gNotes = storageService.loadFromStorage(KEY) || [
     // doneAt: Date.now(),
     isPinned: false,
     backgroundColor: 'blue',
+    isEditOn: false,
   },
   {
     id: utilService.makeId(),
@@ -60,6 +69,7 @@ var gNotes = storageService.loadFromStorage(KEY) || [
     // doneAt: Date.now(),
     isPinned: false,
     backgroundColor: 'blue',
+    isEditOn: false,
   },
   {
     id: utilService.makeId(),
@@ -68,6 +78,7 @@ var gNotes = storageService.loadFromStorage(KEY) || [
     // doneAt: Date.now(),
     isPinned: false,
     backgroundColor: 'blue',
+    isEditOn: false,
   },
 ];
 
@@ -89,7 +100,6 @@ function query(filterBy) {
 function addNote(note) {
   const { type } = note;
   var newNote;
-  console.log(type);
   switch (type) {
     case 'text':
       newNote = _createTextNote(note);
@@ -130,7 +140,7 @@ function _createImageNote(note) {
   return {
     id: utilService.makeId(),
     type: 'image',
-    info: { url: note.inputValue },
+    info: { title: 'new title', url: note.inputValue },
     backgroundColor: '#00d',
     isPinned: false,
   };
@@ -138,7 +148,6 @@ function _createImageNote(note) {
 
 function _createTodoNote(note) {
   const list = note.inputValue.split(',');
-  console.log(list);
   return {
     id: utilService.makeId(),
     type: 'todo',
@@ -170,7 +179,6 @@ function removeNote(noteId) {
   var noteIdx = gNotes.findIndex(function (note) {
     return noteId === note.id;
   });
-  console.log(noteIdx);
   gNotes.splice(noteIdx, 1);
   _saveNotesToStorage();
   return Promise.resolve();
@@ -188,28 +196,40 @@ function _createNotes() {
   if (!notes || !notes.length) {
     notes = [
       {
-        id: 'n101',
+        id: utilService.makeId(),
         type: 'text',
         info: { text: 'Fullstack Me Baby!' },
         // doneAt: Date.now(),
         isPinned: true,
         backgroundColor: 'blue',
+        isEditOn: false,
       },
       {
-        id: 'n102',
+        id: utilService.makeId(),
+        type: 'text',
+        info: { text: 'aaaaa Me Baby!' },
+        // doneAt: Date.now(),
+        isPinned: true,
+        backgroundColor: 'blue',
+        isEditOn: false,
+      },
+      {
+        id: utilService.makeId(),
         type: 'image',
-        info: { url: 'https://picsum.photos/200/300' },
+        info: { title: 'Bobi and Me', url: 'https://picsum.photos/200/300' },
         backgroundColor: '#00d',
         isPinned: false,
+        isEditOn: false,
       },
       {
-        id: 'n103',
+        id: utilService.makeId(),
         type: 'todo',
         info: {
           todos: ['Driving liscence', 'Coding power'],
         },
         backgroundColor: 'red',
         isPinned: false,
+        isEditOn: false,
       },
     ];
   }
@@ -238,4 +258,40 @@ function togglePin(noteId) {
 function getNoteById(noteId) {
   var note = gNotes.find((note) => note.id === noteId);
   return Promise.resolve(note);
+}
+
+function toggleEdit(noteId) {
+  return Promise.resolve(
+    getNoteById(noteId).then((note) => {
+      note.isEditOn = !note.isEditOn;
+      _saveNotesToStorage();
+
+      return note;
+    })
+  );
+}
+
+function saveEdit(note) {
+  const noteIdx = getNoteIdx(note.id).then((resId) => {
+    gNotes.splice(resId, 1, note);
+    // toggleEdit(note.id);
+    _saveNotesToStorage();
+  });
+  return Promise.resolve();
+}
+
+function getNoteIdx(noteId) {
+  return Promise.resolve(gNotes.findIndex((note) => note.id === noteId));
+}
+function getNotes() {
+  console.log(gNotes);
+}
+
+function changeBackground(noteId, color) {
+  getNoteIdx(noteId).then((Idx) => {
+    gNotes[Idx].backgroundColor = color;
+    _saveNotesToStorage();
+  });
+  // console.log(noteIdx);
+  return Promise.resolve();
 }

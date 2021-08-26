@@ -25,6 +25,7 @@ export class NotePreview extends React.Component {
     this.setState((prevState) => ({
       note: { ...prevState.note, ['backgroundColor']: color },
     }));
+    this.props.onChangeBackground(this.state.note.id, color);
   };
 
   render() {
@@ -55,16 +56,25 @@ export class NotePreview extends React.Component {
         {/* {!note && <DynamicCmp note={note} />} */}
         {/* <DynamicCmp note={note} /> */}
 
-        {note.type === 'text' && <NoteTxt note={note} />}
-        {note.type === 'image' && <NoteImage note={note} />}
-        {note.type === 'video' && <NoteVideo note={note} />}
-        {note.type === 'todo' && <NoteTodo note={note} />}
+        {note.type === 'text' && (
+          <NoteTxt note={note} onSave={this.props.onSave} />
+        )}
+        {note.type === 'image' && (
+          <NoteImage note={note} onSave={this.props.onSave} />
+        )}
+        {note.type === 'video' && (
+          <NoteVideo note={note} onSave={this.props.onSave} />
+        )}
+        {note.type === 'todo' && (
+          <NoteTodo note={note} onSave={this.props.onSave} />
+        )}
         <div className='note-preview-btns'>
           <button onClick={() => this.props.handleRemoveNote(note.id)}>
             -
           </button>
         </div>
         <button onClick={() => this.props.onPinNote(note)}>PIN</button>
+        <button onClick={() => this.props.onToggleEdit(note)}>Edit</button>
         <ColorInput handleChange={this.handleChange} />
       </article>
     );

@@ -15,7 +15,7 @@ export class NoteList extends React.Component {
     const handleRemoveNote = (noteId) => {
       noteService.removeNote(noteId);
       const { notes } = this.state;
-      this.setState({ notes });
+      this.setState({ notes: notes });
     };
 
     const { notes } = this.props;
@@ -27,6 +27,9 @@ export class NoteList extends React.Component {
             note={note}
             handleRemoveNote={handleRemoveNote}
             onPinNote={this.props.onPinNote}
+            onToggleEdit={this.props.onToggleEdit}
+            onSave={this.props.onSave}
+            onChangeBackground={this.props.onChangeBackground}
           />
         ))}
       </div>

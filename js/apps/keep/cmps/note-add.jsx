@@ -38,8 +38,6 @@ export class NoteAdd extends React.Component {
 
   render() {
     const { type, placeholder, inputValue } = this.state;
-    console.log(inputValue);
-
     return (
       <div className='note-add'>
         <input
