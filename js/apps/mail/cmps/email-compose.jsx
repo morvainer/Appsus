@@ -20,9 +20,7 @@ export class EmailCompose extends React.Component {
         this.setState(prevState => ({ ...prevState, [field]: target.value }))
     }
 
-    toggleModal = () => {
-        this.setState(prevState => ({ isComposeShown: !prevState.isComposeShown }))
-      }
+    
       onBack = () => {
         this.props.history.push('/book')
     }
@@ -34,6 +32,7 @@ export class EmailCompose extends React.Component {
       }
     render() {
         const { to, cc, bcc, subject, message } = this.state;
+        const {toggleCompose } = this.props;
         return (
             
             <form className="email-compose" onSubmit={(event)=>{this.onAddEmail(event)}}>
@@ -51,7 +50,8 @@ export class EmailCompose extends React.Component {
                         
                     </textarea>
                     <button>Send</button>
-                    {/* <div onClick={this.toggleModal}> go back </div> */}
+                    {/* <Link to={`/email`} >go back </Link> */}
+                    <div className="goback-btn" onClick={() => toggleCompose()}> go back </div>
                     {/* <a href="#" onClick={this.onBack}>go back</a> */}
                     {/* <Link to={`/email`}>Go Back</Link> */}
                 </form>

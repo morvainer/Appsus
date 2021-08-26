@@ -2,7 +2,8 @@ import { storageService } from '../../../services-general/storage.service.js'
 import { utilService } from '../../../services-general/util.service.js'
 export const emailService = {
     query,
-    addEmail
+    addEmail,
+    getEmailById
 
 }
 const KEY = 'emailsDB';
@@ -48,6 +49,12 @@ const criteria = {// for search?-------------
 //     }
 //     return Promise.resolve(gBooks);
 // }
+function getEmailById(emailId) {
+    let email = gEmails.find(function (email) {
+        return emailId === email.id
+    })
+    return Promise.resolve(email)
+} 
 
 function query() {
     return Promise.resolve(gEmails);

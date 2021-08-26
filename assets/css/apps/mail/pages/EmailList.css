@@ -26,4 +26,7 @@ ul {
     background-color: beige;
   }
 
-  
+
+  .preview-link{
+    text-decoration: none;  
+  }
