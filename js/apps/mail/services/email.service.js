@@ -4,12 +4,14 @@ export const emailService = {
     query,
     addEmail,
     getEmailById,
-    updateEmailIsRead
+    updateEmailIsRead,
+    countUnreadMails
 
 }
 const KEY = 'emailsDB';
 // let gEmails = [];
 let gEmails = storageService.loadFromStorage(KEY) || []
+let gReadMailsCount = 0
 // let gEmails=[
 //     {id: 1, name: 'mor', title: 'this is a title'},
 //     {id: 2, name: 'mor2', title: 'this is a title2'},
@@ -61,13 +63,28 @@ function query() {
     return Promise.resolve(gEmails);
 }
 
-function updateEmailIsRead(emailId){
+function updateEmailIsRead(emailId){//change
     getEmailById(emailId).then((email)=>{
         email.isRead = true
+       
+        // console.log('count:',gCount);
         _saveEmailToStorage();
     })
+    return Promise.resolve()
  //change gEmail.isRead
  //save to storage
+}
+
+function countUnreadMails(){
+    gReadMailsCount = 0;
+    gEmails.forEach((mail)=>{
+        if(mail.isRead){
+            gReadMailsCount++
+            console.log('mail is:',mail);
+        }
+    })
+    let count = gReadMailsCount
+    return Promise.resolve(count)
 }
 
 function addEmail(to, cc, bcc, subject, message) {

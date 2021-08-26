@@ -1,4 +1,5 @@
 import { emailService } from '../services/email.service.js'
+import { eventBusService } from '../../../services-general/event-bus-service.js'
 
 
 
@@ -7,7 +8,8 @@ export class EmailDetails extends React.Component {
 
     state = {
         emailId: this.props.match.params.emailId,
-        currEmail: null
+        currEmail: null,
+        countReadMails: 0
 
     }
     componentDidMount() {
@@ -21,8 +23,17 @@ export class EmailDetails extends React.Component {
 
     }
  updateIsRead =() =>{
-    emailService.updateEmailIsRead(this.state.emailId);
+    emailService.updateEmailIsRead(this.state.emailId)
+
  }
+
+//  .then((count)=>{this.setState({countReadMails: count})})
+//     .then(()=>{console.log('this.state.countReadMails: ', this.state.countReadMails);})
+//     .then(()=>{
+//         eventBusService.emit('readMailsCount', this.state.countReadMails)
+//     }).then(()=>{console.log('this.state.countReadMails2: ', this.state.countReadMails);})
+// //  this.setState({countReadMails: count})
+//  this.state.countReadMails +1
     // isRead = () => {
     //     this.setState((prevState) => ({
     //         currEmail: { ...prevState.currEmail, isRead: !prevState.currEmail.isRead },
