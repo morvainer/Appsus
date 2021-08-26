@@ -7,6 +7,7 @@ import { Home } from './js/pages-general/app-home.jsx';
 // import { EmailApp } from './js/apps/mail/pages/email-app.jsx'
 import { NoteApp } from './js/apps/keep/pages/note-app.jsx';
 import { RootCmpEmail } from './js/apps/mail/root-cmp-email.jsx';
+import { UserMsg } from './js/cmps-general/user-msg.jsx';
 
 export function App() {
   return (
@@ -21,9 +22,8 @@ export function App() {
           {/* <Route path='/email' component={EmailApp} /> */}
           <Route path='/' component={Home} />
         </Switch>
-
+        <UserMsg />
       </main>
-
     </Router>
   );
 }

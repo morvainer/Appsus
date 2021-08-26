@@ -2,6 +2,7 @@ import { NoteAdd } from '../cmps/note-add.jsx';
 import { NoteFilter } from '../cmps/note-filter.jsx';
 import { NoteList } from '../cmps/note-list.jsx';
 import { noteService } from '../services/note.service.js';
+import { eventBusService } from '../../../services-general/event-bus-service.js';
 
 export class NoteApp extends React.Component {
   state = {
@@ -26,6 +27,10 @@ export class NoteApp extends React.Component {
     if (!inputValue.trim().length) return;
     noteService.addNote(note);
     this.loadNotes();
+    eventBusService.emit('user-msg', {
+      txt: `Note Added!`,
+      type: 'success',
+    });
   };
 
   onPinNote = (note) => {
@@ -41,6 +46,10 @@ export class NoteApp extends React.Component {
       this.onToggleEdit(note);
       this.loadNotes();
     });
+    eventBusService.emit('user-msg', {
+      txt: `Note Saved!`,
+      type: 'success',
+    });
   };
 
   onChangeBackground = (noteId, color) => {
@@ -49,6 +58,10 @@ export class NoteApp extends React.Component {
 
   onCloneNote = (note) => {
     noteService.cloneNote(note).then(() => this.loadNotes());
+    eventBusService.emit('user-msg', {
+      txt: `Note Cloned!`,
+      type: 'success',
+    });
   };
 
   render() {

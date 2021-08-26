@@ -1,3 +1,4 @@
+import { eventBusService } from '../../../services-general/event-bus-service.js';
 import { noteService } from '../services/note.service.js';
 import { NotePreview } from './note-preview.jsx';
 
@@ -16,6 +17,10 @@ export class NoteList extends React.Component {
       noteService.removeNote(noteId);
       const { notes } = this.state;
       this.setState({ notes: notes });
+      eventBusService.emit('user-msg', {
+        txt: `Note Deleted!`,
+        type: 'danger',
+      });
     };
 
     const { notes } = this.props;
