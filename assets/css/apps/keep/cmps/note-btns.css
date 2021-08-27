@@ -1,0 +1,19 @@
+.note-btns-container {
+  display: flex;
+  gap: 5px;
+  justify-content: space-between;
+  position: relative;
+  margin-bottom: 10px;
+}
+
+.note-preview:hover .note-btns-container button {
+  opacity: 100%;
+}
+
+.note-btns-container button {
+  opacity: 0;
+  background-color: transparent;
+  cursor: pointer;
+  transition: 0.4s;
+  border: none;
+}

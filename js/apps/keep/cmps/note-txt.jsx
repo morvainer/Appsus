@@ -31,15 +31,17 @@ export class NoteTxt extends React.Component {
     if (!this.state.note) return <h1>loading...</h1>;
     const { text } = this.state.note.info;
     return (
-      <div className='note-txt'>
-        <h2>Text Note</h2>
-        {!note.isEditOn && <h3 id={note.id}>{note.info.text}</h3>}
-        {note.isEditOn && (
-          <form onSubmit={this.saveChanges}>
-            <textarea value={text} onChange={this.handleChange} />
-            <button>Save Edit</button>
-          </form>
-        )}
+      <div className='note-txt-container'>
+        <i className='fas fa-font icon'></i>
+        <div className='note-txt'>
+          {!note.isEditOn && <h3 id={note.id}>{note.info.text}</h3>}
+          {note.isEditOn && (
+            <form onSubmit={this.saveChanges}>
+              <textarea value={text} onChange={this.handleChange} />
+              <button>Save Edit</button>
+            </form>
+          )}
+        </div>
       </div>
     );
   }

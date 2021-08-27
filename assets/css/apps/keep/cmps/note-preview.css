@@ -1,19 +1,64 @@
 .note-preview {
-  border: 1px solid black;
+  margin-bottom: 20px;
+  padding: 20px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  text-align: center;
+  overflow: hidden;
+  break-inside: avoid;
+  border-radius: 5px;
+  min-height: 200px;
+  box-shadow: 0 0 3px 0 #000;
+  /* transition: transform 1s; */
 }
 
-/* .red {
-  background-color: 'red';
+.note-preview:hover {
+  /* transform: scale(1.02); */
 }
 
-.blue {
-  background-color: blue;
+.note-txt-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 5px;
 }
 
-.green {
-  background-color: green;
+.note-video {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
-.yellow {
-  background-color: yellow;
-} */
+.note-todo {
+  text-align: center;
+}
+
+.note-todo li {
+  padding: 5px;
+}
+
+.note-todo li:hover {
+  cursor: pointer;
+}
+
+.note-todo .finished {
+  text-decoration: line-through;
+  opacity: 50%;
+}
+
+.note-image {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.note-image img {
+  object-fit: cover;
+  height: 100%;
+}

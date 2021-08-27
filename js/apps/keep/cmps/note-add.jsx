@@ -4,24 +4,40 @@ export class NoteAdd extends React.Component {
     type: 'text',
     inputValue: '',
     placeholder: 'Enter text...',
+    active: 'text',
   };
 
   handleChangeType = ({ target }) => {
     const type = target.name;
     switch (type) {
       case 'text':
-        this.setState({ placeholder: 'Enter text...', type: 'text' });
+        this.setState({
+          placeholder: 'Enter text...',
+          type: 'text',
+          active: 'text',
+        });
         break;
       case 'image':
-        this.setState({ placeholder: 'Enter image URL...', type: 'image' });
+        console.log('image');
+        this.setState({
+          placeholder: 'Enter image URL...',
+          type: 'image',
+          active: 'image',
+        });
+        console.log(this.state.active);
         break;
       case 'video':
-        this.setState({ placeholder: 'Enter video URL...', type: 'video' });
+        this.setState({
+          placeholder: 'Enter video URL...',
+          type: 'video',
+          active: 'video',
+        });
         break;
       case 'todo':
         this.setState({
           placeholder: 'Enter comma seperated list...',
           type: 'todo',
+          active: 'todo',
         });
         break;
 
@@ -37,9 +53,9 @@ export class NoteAdd extends React.Component {
   };
 
   render() {
-    const { type, placeholder, inputValue } = this.state;
+    const { type, placeholder, inputValue, active } = this.state;
     return (
-      <div className='note-add'>
+      <div className='note-add-container'>
         <input
           type='text'
           placeholder={placeholder}
@@ -47,31 +63,49 @@ export class NoteAdd extends React.Component {
           name='inputValue'
           onChange={this.handleEnterInput}
         />
-        <button name='text' onClick={this.handleChangeType}>
-          Text
-        </button>
-        <button name='image' onClick={this.handleChangeType}>
-          Image
-        </button>
-        <button name='video' onClick={this.handleChangeType}>
-          Video
-        </button>
-        <button name='todo' onClick={this.handleChangeType}>
-          Todo
-        </button>
-        <button
-          name='addNote'
-          onClick={() => {
-            this.props.handleAddNote(this.state);
-            this.setState({
-              type: 'text',
-              inputValue: '',
-              placeholder: 'Enter text...',
-            });
-          }}
-        >
-          Add Note
-        </button>
+        <div className='note-add-btns-container'>
+          <button
+            name='text'
+            className={active === 'text' ? 'active' : ''}
+            onClick={this.handleChangeType}
+          >
+            <i className='fas fa-font'></i>
+          </button>
+          <button
+            name='image'
+            className={active === 'image' ? 'active' : ''}
+            onClick={this.handleChangeType}
+          >
+            <i className='far fa-image'></i>
+          </button>
+          <button
+            name='video'
+            className={active === 'video' ? 'active' : ''}
+            onClick={this.handleChangeType}
+          >
+            <i className='fab fa-youtube'></i>
+          </button>
+          <button
+            name='todo'
+            className={active === 'todo' ? 'active' : ''}
+            onClick={this.handleChangeType}
+          >
+            <i className='fas fa-list'></i>
+          </button>
+          <button
+            name='addNote'
+            onClick={() => {
+              this.props.handleAddNote(this.state);
+              this.setState({
+                type: 'text',
+                inputValue: '',
+                placeholder: 'Enter text...',
+              });
+            }}
+          >
+            Add Note
+          </button>
+        </div>
       </div>
     );
   }
