@@ -65,14 +65,46 @@ function query() {
 
 }
 
-function query(filterBy, sortBy) {//gets object //emailsReadFilter ='read'
-    if (filterBy) {
-        console.log('filterby form service', filterBy);
+
+function query( sortBy, filterBy) {//gets object //emailsReadFilter ='read'
+    if (filterBy || sortBy) {
+        
+        console.log('query');
+        console.log('filterby from service', filterBy);
+        console.log('sortby from service', sortBy);
         let { search, emailsReadFilter } = filterBy
+        let {  sortEmails } = sortBy
         let emailsToShow =null;
+        let  sortedEmails=null;
         emailsReadFilter = emailsReadFilter ? emailsReadFilter : 'all'
         search = search? search : ''
+        sortEmails= sortEmails?  sortEmails: ''
         // const emailsToShow = gEmails.filter(email => email.subject.includes(search)) 
+        if(sortEmails === 'none'){
+            sortedEmails = gEmails
+            // _saveEmailsToStorage();
+        }
+        else if (sortEmails === 'date') {
+            sortedEmails = sortEmailsByDate(gEmails) 
+            console.log('gmails in sory by date is', gEmails);
+            // _saveEmailsToStorage();
+         }else if(sortEmails === 'subject'){
+            sortedEmails = sortEmailsBySubject(gEmails) 
+            console.log('gmails in sort by subject is', gEmails);
+            // _saveEmailsToStorage();
+
+         }
+        //  gEmails=sortedEmails
+        console.log(' sortedEmails',  sortedEmails);
+
+        emailsToShow=sortedEmails //filter gets the sort so it executes it//
+        //  you dont return anything in the in the sort like you do in the filter--------------look HERE!!!!
+        // gEmails=sortedEmails
+        console.log(' emailsToShow',  emailsToShow);
+        if(!filterBy){
+            return Promise.resolve(emailsToShow)
+        }
+
         if(search){
 
             emailsToShow = gEmails.filter(email => email.subject.includes(search)) 
@@ -89,12 +121,46 @@ function query(filterBy, sortBy) {//gets object //emailsReadFilter ='read'
             emailsToShow = gEmails.filter(email => {
                  return (email) && email.subject.includes(search)}) 
          }  
-                
+        
+               
         
         return Promise.resolve(emailsToShow)
     }
     return Promise.resolve(gEmails);
 }
+
+
+
+function sortEmailsByDate(emails) {
+console.log('sorting by date');
+
+    return emails.sort(function (email1, email2) {
+        if (email1.sentAt > email2.sentAt) {
+            return 1;
+        } if (email2.sentAt > email1.sentAt) {
+            return -1;
+        } else {
+            return 0;
+        }
+
+    });
+}
+
+function sortEmailsBySubject(emails) {
+    console.log('sorting by subject');
+    
+        return emails.sort(function (email1, email2) {
+            if (email1.subject > email2.subject) {
+                return 1;
+            } if (email2.subject > email1.subject) {
+                return -1;
+            } else {
+                return 0;
+            }
+    
+        });
+    }
+    
 
 // (emailsReadFilter==='read' && email.isRead)  || 
 // (emailsReadFilter==='unRead' && !email.isRead)   
@@ -157,10 +223,11 @@ function _createEmail(to, cc, bcc, subject, message) {
         subject,
         message,
         isRead: false,
-        sentAt: new Date().toISOString().split('T')[0].split('-').reverse().join('-'),
+        sentAt: new Date((new Date()).valueOf() + 1*3600*24).toISOString().split('T')[0].split('-').reverse().join('-'),
         status: 'sent',
         isStared: false
-
+        // new Date((new Date()).valueOf() + 1*3600*24).toISOString().split('T')[0].split('-').reverse().join('-'),
+        // new Date().toISOString().split('T')[0].split('-').reverse().join('-'),
 
         // content: utilService.makeLorem(),
     }
@@ -175,9 +242,7 @@ function _createEmail(to, cc, bcc, subject, message) {
 
 
 
-function updateEmail() {
 
-}
 
 
 function _saveEmailsToStorage() {

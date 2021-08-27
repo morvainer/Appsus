@@ -21,20 +21,24 @@ export class EmailApp extends React.Component {
   };
  
   componentDidMount() {
-    
+    // console.log('comp did mount');
     this.loadEmails();
 
     // this.removeEventBus = eventBusService.on('unRead-Emails-Count', (unReadEmailsCount) => {
     //   this.setState({ unReadEmailsCount })
   }
+  
   // console.log('books:', this.state.books);
   // }
   // getTextToShow = (text) => {
   
   // }
   loadEmails = () => {
-    // console.log('this.state.filterBy in emailapp', this.state.filterBy);
-    emailService.query(this.state.filterBy, this.state.sortBy).then((emails) => {
+    const {sortBy, filterBy } = this.state;
+    console.log('loading emails');
+    console.log('sortBy ', sortBy);
+    console.log('filterBy ', filterBy);
+    emailService.query(sortBy, filterBy).then((emails) => {
       this.setState({ emails })
       emailService.countUnreadMails().then((count)=>{
         eventBusService.emit('readMailsCount', count )
@@ -56,9 +60,11 @@ export class EmailApp extends React.Component {
     emailService.addEmail();
   }
   onSetFilter = (filterBy) => {
+    console.log('onSetFilter ');
     this.setState({ filterBy }, this.loadEmails);
 }
   onSetSort = (sortBy) => {
+    console.log('onSetSort ');
     this.setState({ sortBy }, this.loadEmails);
 }
   // toggleMailsSent = () => {
@@ -66,9 +72,12 @@ export class EmailApp extends React.Component {
   // }
 
   render() {
-    const { emails, emailsReadCount } = this.state;
+    // console.log('RENDERED email-app');
+    const { emails, emailsReadCount, sortBy, filterBy } = this.state;
+    // console.log('sortby in emailApp is', sortBy);
+    // console.log('filterby in emailApp is', filterBy);
     const { isComposeShown, isMailSentShown } = this.props;
-    console.log('emails in emailApp', emails);
+    // console.log('emails in emailApp', emails);
     if (!emails) return <h2>Loading...</h2>
 
     return (
