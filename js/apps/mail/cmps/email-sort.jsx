@@ -46,9 +46,9 @@ export class EmailSort extends React.Component {
             <form className='email-sort' onSubmit={this.onSort}>
                
                 <select name="sortEmails" value={sortEmails.value} onChange={()=>{this.sortEmails(event)}}>
-                        <option value="none">None</option>
-                        <option value="subject">Subject</option>
+                        {/* <option value="none">None</option> */}
                         <option value="date">Date</option>
+                        <option value="subject">Subject</option>
                         
                         
                     </select>

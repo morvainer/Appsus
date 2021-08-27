@@ -22,7 +22,7 @@ export class EmailCompose extends React.Component {
 
     
       onBack = () => {
-        this.props.history.push('/email')
+        // this.props.history.push('/email/inbox')
     }
       onAddEmail = (ev) =>{
           ev.preventDefault();
@@ -54,7 +54,8 @@ export class EmailCompose extends React.Component {
                     </textarea>
                     <button >Send</button>
                     {/* <Link to={`/email`} >go back </Link> */}
-                    <div className="goback-btn" onClick={() => toggleCompose()}> go back </div>
+                    {/* <div className="goback-btn" onClick={() => toggleCompose()}> go back </div> */}
+                    <Link to={`/email/`} onClick={() => toggleCompose()}>go back</Link>
                     {/* <a href="#" onClick={this.onBack}>go back</a> */}
                     {/* <Link to={`/email`}>Go Back</Link> */}
                 </form>

@@ -49,7 +49,7 @@ export class EmailDetails extends React.Component {
 
     //   }
     onBack = () => {
-        this.props.history.push('/email')
+        this.props.history.push('/email/inbox')
     }
     onDeleteEmail = () => {
         console.log('deleting mail');
@@ -76,8 +76,8 @@ export class EmailDetails extends React.Component {
         return (
             <div>
                 details
-                <div>From: {currEmail.from}</div>
-                <div>To: {currEmail.to}</div>
+                <div>From: {currEmail. fromName}</div>
+                <div>To: {currEmail.toEmail}</div>
                 <div>Subject: {currEmail.subject}</div>
                 <div>Message: {currEmail.message}</div>
                 <button onClick={() => this.onDeleteEmail()}>Delete Email </button>

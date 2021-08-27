@@ -38,7 +38,8 @@ export class RootCmpEmail extends React.Component {
           {/* <Route component={EmailDetails} path='/email/details' /> */}
           {/* <Route component={EmailList} path='/email/list' /> */}
           {/* <Route path="/email/sentmails" component={SentMailList} /> */}
-          <Route path='/email/:emailId' component={EmailDetails} />
+          <Route path='/email/:folder/:emailId' component={EmailDetails} />
+          <Route isComposeShown={isComposeShown} component={EmailApp} className="email-app-root" path='/email/:folder' />
           <Route isComposeShown={isComposeShown} component={EmailApp} className="email-app-root" path='/email' />
         </Switch>
       </main>

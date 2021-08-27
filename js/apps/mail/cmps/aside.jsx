@@ -6,7 +6,9 @@ const { Link } = ReactRouterDOM
 export class Aside extends React.Component{
 
     state = {
-      readEmailcount: 0
+      readEmailcount: 0,
+      sentFolder: 'sent',
+      inboxFolder: 'inbox'
       };
 
       removeEventBus;
@@ -18,18 +20,19 @@ export class Aside extends React.Component{
       
       render() {
         const { toggleCompose, closeModal } = this.props;
-        const { readEmailcount } = this.state;
+        const { readEmailcount, sentFolder,  inboxFolder } = this.state;
     return(
 
         <aside className="aside">
             <div className="aside-btn"><button onClick={toggleCompose}>Compose Email</button></div>
             {/* <div className="aside-link">Inbox</div> */}
-            <Link to={`/email`} onClick={closeModal}>Inbox({readEmailcount})</Link>
-            <div className="aside-link">Starred</div>
-            <div className="aside-link">Sent Mail</div>
+            <Link to={`/email/${inboxFolder}`} onClick={closeModal}>Inbox({readEmailcount})</Link>
+            <Link to={`/email/${sentFolder}`} onClick={closeModal}>Sent Emails</Link>
+            {/* <div className="aside-link">Starred</div> */}
+            {/* <div className="aside-link">Sent Mail</div> */}
             {/* <div className="aside-link" ><button onClick={toggleMailsSent}>Sent Mail</button></div> */}
             {/* <Link to={`/email/sentmails`} >Sent Emails</Link>   */}
-            <div className="aside-link">Drafts</div>
+            {/* <div className="aside-link">Drafts</div> */}
         </aside>
         
         

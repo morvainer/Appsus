@@ -9,6 +9,8 @@
     /* position: absolute; */
     padding: 10px;
     /* margin: 10px; */
+    display: flex;
+    flex-direction: column;
 }
 aside .aside{
     margin: 10px; 

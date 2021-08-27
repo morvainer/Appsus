@@ -28,9 +28,9 @@ const email = {
     to: 'momo@momo.com'
 }
 
-const loggedinUser = {
+const gLoggedinUser = {
     email: 'user@appsus.com',
-    fullname: 'Mahatma Appsus'
+    fullname: 'Appsus'
 }
 
 const criteria = {// for search?-------------
@@ -60,76 +60,116 @@ function getEmailById(emailId) {
     return Promise.resolve(email)
 }
 
-function query() {
-    return Promise.resolve(gEmails);
+// function query() {
+//     return Promise.resolve(gEmails);
 
-}
+// }
 
 
-function query( sortBy, filterBy) {//gets object //emailsReadFilter ='read'
-    if (filterBy || sortBy) {
-        
-        console.log('query');
-        console.log('filterby from service', filterBy);
-        console.log('sortby from service', sortBy);
+function query( sortBy, filterBy, folderForFilter) {//gets object //emailsReadFilter ='read'
+    if (filterBy || sortBy || folderForFilter ) {
+        // console.log('folderForFilter in email service', folderForFilter);
+        // console.log('query');
+        // console.log('folderForFilter from service', folderForFilter);
+        // console.log('filterby from service', filterBy);
+        // console.log('sortby from service', sortBy);
         let { search, emailsReadFilter } = filterBy
         let {  sortEmails } = sortBy
         let emailsToShow =null;
         let  sortedEmails=null;
+        let  filteredFolders=null;
         emailsReadFilter = emailsReadFilter ? emailsReadFilter : 'all'
         search = search? search : ''
         sortEmails= sortEmails?  sortEmails: ''
         // const emailsToShow = gEmails.filter(email => email.subject.includes(search)) 
-        if(sortEmails === 'none'){
-            sortedEmails = gEmails
-            // _saveEmailsToStorage();
-        }
-        else if (sortEmails === 'date') {
+        // if(sortEmails === 'none'){
+        //     sortedEmails = gEmails
+        //     // _saveEmailsToStorage();
+        // }
+         if (sortEmails === 'date') {
             sortedEmails = sortEmailsByDate(gEmails) 
-            console.log('gmails in sory by date is', gEmails);
+            // console.log('gmails in sory by date is', gEmails);
             // _saveEmailsToStorage();
          }else if(sortEmails === 'subject'){
             sortedEmails = sortEmailsBySubject(gEmails) 
-            console.log('gmails in sort by subject is', gEmails);
+            // console.log('gmails in sort by subject is', gEmails);
             // _saveEmailsToStorage();
 
          }
         //  gEmails=sortedEmails
-        console.log(' sortedEmails',  sortedEmails);
+        // console.log(' sortedEmails',  sortedEmails);
 
-        emailsToShow=sortedEmails //filter gets the sort so it executes it//
+        filteredFolders=sortedEmails //filter gets the sort so it executes it//
+        // emailsToShow=sortedEmails //filter gets the sort so it executes it//
         //  you dont return anything in the in the sort like you do in the filter--------------look HERE!!!!
         // gEmails=sortedEmails
-        console.log(' emailsToShow',  emailsToShow);
-        if(!filterBy){
-            return Promise.resolve(emailsToShow)
+        // console.log(' emailsToShow',  emailsToShow);
+        if(folderForFilter){
+            // return Promise.resolve(emailsToShow)
+        
+        if(folderForFilter==='sent'){
+            console.log('filter is sent');
+            filteredFolders = gEmails.filter(email => {
+                return (email.status==='sent')  
+         })
+        }else if(folderForFilter==='inbox'){
+            console.log('filter is inbox');
+            filteredFolders = gEmails.filter(email => {
+                return (email.status==='inbox') 
+        })
+        
         }
-
+    }
+    emailsToShow=filteredFolders
+    console.log(' emailsToShow after filter1 ',  emailsToShow);
+    if(!filterBy){
+        return Promise.resolve(emailsToShow)
+    }else{
         if(search){
 
-            emailsToShow = gEmails.filter(email => email.subject.includes(search)) 
+            emailsToShow = filteredFolders.filter(email => email.subject.includes(search)) 
         }
          if(emailsReadFilter==='read'){
-            emailsToShow = gEmails.filter(email => {
+            emailsToShow =filteredFolders.filter(email => {
                  return (email.isRead) && (email.subject.includes(search))}) 
          }
          else if(emailsReadFilter=== 'unRead'){
-            emailsToShow = gEmails.filter(email => {
-                 return (!email.isRead) && email.subject.includes(search)}) 
+            emailsToShow =filteredFolders.filter(email => {
+                 return (!email.isRead) && email.subject.includes(search)})  
          }  
          else if(emailsReadFilter==='all'){
-            emailsToShow = gEmails.filter(email => {
+            emailsToShow = filteredFolders.filter(email => {
                  return (email) && email.subject.includes(search)}) 
          }  
         
-               
+         console.log(' emailsToShow after filter2 ',  emailsToShow);
+        //  return Promise.resolve(emailsToShow)
+
+        if(folderForFilter){
+            // return Promise.resolve(emailsToShow)
         
-        return Promise.resolve(emailsToShow)
+        if(folderForFilter==='sent'){
+            console.log('filter is sent');
+            filteredFolders = gEmails.filter(email => {
+                return (email.status==='sent')  
+         })
+        }else if(folderForFilter==='inbox'){
+            console.log('filter is inbox');
+            filteredFolders = gEmails.filter(email => {
+                return (email.status==='inbox') 
+        })
+        
+        }
     }
+    return Promise.resolve(emailsToShow)
+
+    }
+}
+    console.log(' gmails in the end ',  gEmails);
     return Promise.resolve(gEmails);
 }
 
-
+// && email.subject.includes(search)})
 
 function sortEmailsByDate(emails) {
 console.log('sorting by date');
@@ -208,16 +248,18 @@ function addEmail(to, cc, bcc, subject, message) {
     // let nameOfTitle = prompt('enter title');
     _createEmail(to, cc, bcc, subject, message);
     console.log('gEmails', gEmails);
+    return Promise.resolve()
     // storageService.saveToStorage('emailsDB', gEmails)
 }
 
-function _createEmail(to, cc, bcc, subject, message) {
+function _createEmail(toEmail, cc, bcc, subject, message) {
 
     const email = {
         id: utilService.makeId(),
         // id: 1,
-        to,
-        from: 'User',
+        toEmail,
+        fromName: gLoggedinUser.fullname,
+        fromEmail: gLoggedinUser.email,
         cc,
         bcc,
         subject,
