@@ -3,9 +3,8 @@ export class EmailFilter extends React.Component {
 
     state = {
         filterBy: {
-            status: '',
-            isStared: false
-
+            search: '',
+            emailsReadFilter: ''// recieves read/unRead
         }
 
     };
@@ -19,19 +18,21 @@ export class EmailFilter extends React.Component {
       }
 
     handleChange = (ev) => {
-        const field = ev.target.name;
-        const value = ev.target.type === 'number' ? +ev.target.value : ev.target.value;
+        const field = ev.target.name;//input name//'search'// name is name in select
+        console.log('ev.target.name',ev.target.name);
+        const value = ev.target.type === 'number' ? +ev.target.value : ev.target.value;// what the user writes
         console.log('value', value);
         console.log('field', field );
         this.setState((prevState) => ({ filterBy: { ...prevState.filterBy, [field]: value } }), () => {
             this.props.onSetFilter(this.state.filterBy)
+            console.log('this.state.filterBy', this.state.filterBy);
         });
     };
-
+  
 
 
     onFilter = (ev) => {
-        ev.preventDefault();
+        ev.preventDefault();// dont need?
         this.props.onSetFilter(this.state.filterBy)
     }
 
@@ -39,15 +40,17 @@ export class EmailFilter extends React.Component {
 
 
     render() {
-        const { status } = this.state.filterBy;
+        const { search, emailsReadFilter} = this.state.filterBy;
         return (
             <form className='email-filter' onSubmit={this.onFilter}>
-                <label htmlFor='by-name'>by name</label>
-                <input ref={this.inputRef} name='name' id='book-name' type='text' placeholder='Book Name' value={name} onChange={this.handleChange}/>
-                <label htmlFor='by-min-price'>by min price</label>
-                <input name='minPrice' id='min-price' type='number' placeholder='min price' value={minPrice} onChange={this.handleChange}/>
-                <label htmlFor='by-price'>by max price</label>
-                <input name='maxPrice' id='max-price' type='number' placeholder='max price' value={maxPrice} onChange={this.handleChange}/>
+                <label htmlFor='search'></label>
+                <input  name='search' id='search' type='text' placeholder='search' value={search} onChange={()=>{this.handleChange(event)}}/>
+                <select name="emailsReadFilter" value={emailsReadFilter.value} onChange={()=>{this.handleChange(event)}}>
+                        <option value="all">all</option>
+                        <option value="read">read</option>
+                        <option value="unRead">Unread</option>
+                        
+                    </select>
             </form>
         )
 

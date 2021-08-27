@@ -13,11 +13,11 @@ export class EmailDetails extends React.Component {
 
     }
     componentDidMount() {
-        console.log(this.props.match.params.emailId);
-        console.log(this.state.emailId);
+        // console.log(this.props.match.params.emailId);
+        // console.log(this.state.emailId);
         this.getEmailByID();
         this.updateIsRead();
-        console.log('currEmail is: ', this.state.currEmail);
+        // console.log('currEmail is: ', this.state.currEmail);
 
 
 
@@ -48,7 +48,14 @@ export class EmailDetails extends React.Component {
     //     this.setState(prevState => ({ isRead: !prevState.isRead }), ()=>{console.log('is read?', this.state.isRead)})
 
     //   }
-
+    onBack = () => {
+        this.props.history.push('/email')
+    }
+    onDeleteEmail = () => {
+        console.log('deleting mail');
+        console.log(this.state.emailId);
+        emailService.deleteEmail(this.state.emailId).then(this.onBack)
+    }
     getEmailByID = () => {
 
         emailService.getEmailById(this.state.emailId).then((currEmail) => {
@@ -73,6 +80,7 @@ export class EmailDetails extends React.Component {
                 <div>To: {currEmail.to}</div>
                 <div>Subject: {currEmail.subject}</div>
                 <div>Message: {currEmail.message}</div>
+                <button onClick={() => this.onDeleteEmail()}>Delete Email </button>
             </div>
         )
     }

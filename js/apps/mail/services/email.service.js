@@ -5,7 +5,8 @@ export const emailService = {
     addEmail,
     getEmailById,
     updateEmailIsRead,
-    countUnreadMails
+    countUnreadMails,
+    deleteEmail
 
 }
 const KEY = 'emailsDB';
@@ -57,30 +58,79 @@ function getEmailById(emailId) {
         return emailId === email.id
     })
     return Promise.resolve(email)
-} 
+}
 
 function query() {
     return Promise.resolve(gEmails);
+
 }
 
-function updateEmailIsRead(emailId){//change
-    getEmailById(emailId).then((email)=>{
+function query(filterBy, sortBy) {//gets object //emailsReadFilter ='read'
+    if (filterBy) {
+        console.log('filterby form service', filterBy);
+        let { search, emailsReadFilter } = filterBy
+        let emailsToShow =null;
+        emailsReadFilter = emailsReadFilter ? emailsReadFilter : 'all'
+        search = search? search : ''
+        // const emailsToShow = gEmails.filter(email => email.subject.includes(search)) 
+        if(search){
+
+            emailsToShow = gEmails.filter(email => email.subject.includes(search)) 
+        }
+         if(emailsReadFilter==='read'){
+            emailsToShow = gEmails.filter(email => {
+                 return (email.isRead) && (email.subject.includes(search))}) 
+         }
+         else if(emailsReadFilter=== 'unRead'){
+            emailsToShow = gEmails.filter(email => {
+                 return (!email.isRead) && email.subject.includes(search)}) 
+         }  
+         else if(emailsReadFilter==='all'){
+            emailsToShow = gEmails.filter(email => {
+                 return (email) && email.subject.includes(search)}) 
+         }  
+                
+        
+        return Promise.resolve(emailsToShow)
+    }
+    return Promise.resolve(gEmails);
+}
+
+// (emailsReadFilter==='read' && email.isRead)  || 
+// (emailsReadFilter==='unRead' && !email.isRead)   
+
+
+
+
+
+
+function updateEmailIsRead(emailId) {//change
+    getEmailById(emailId).then((email) => {
         email.isRead = true
-       
+
         // console.log('count:',gCount);
-        _saveEmailToStorage();
+        _saveEmailsToStorage();
     })
     return Promise.resolve()
- //change gEmail.isRead
- //save to storage
+    //change gEmail.isRead
+    //save to storage
 }
-
-function countUnreadMails(){
+function deleteEmail(emailId) {
+    console.log('the email id in delete email is', emailId);
+    // if (!emailId) return
+    let emailIdx = gEmails.findIndex(function (email) {
+        return emailId === email.id
+    })
+    gEmails.splice(emailIdx, 1)
+    _saveEmailsToStorage();
+    return Promise.resolve('resolves')
+}
+function countUnreadMails() {
     gReadMailsCount = 0;
-    gEmails.forEach((mail)=>{
-        if(mail.isRead){
+    gEmails.forEach((mail) => {
+        if (mail.isRead) {
             gReadMailsCount++
-            console.log('mail is:',mail);
+            // console.log('mail is:',mail);
         }
     })
     let count = gReadMailsCount
@@ -107,11 +157,11 @@ function _createEmail(to, cc, bcc, subject, message) {
         subject,
         message,
         isRead: false,
-        sentAt: '3/3/3',
+        sentAt: new Date().toISOString().split('T')[0].split('-').reverse().join('-'),
         status: 'sent',
         isStared: false
 
-        
+
         // content: utilService.makeLorem(),
     }
     // _saveBooksToStorage()
@@ -123,15 +173,13 @@ function _createEmail(to, cc, bcc, subject, message) {
     return Promise.resolve();
 }
 
-function deleteEmail() {
 
-}
 
 function updateEmail() {
 
 }
 
 
-function _saveEmailToStorage() {
+function _saveEmailsToStorage() {
     storageService.saveToStorage(KEY, gEmails)
 }

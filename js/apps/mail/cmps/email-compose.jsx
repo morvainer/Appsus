@@ -22,13 +22,16 @@ export class EmailCompose extends React.Component {
 
     
       onBack = () => {
-        this.props.history.push('/book')
+        this.props.history.push('/email')
     }
       onAddEmail = (ev) =>{
           ev.preventDefault();
+          const {toggleCompose } = this.props;
           const { to, cc, bcc, subject, message } = this.state;
         console.log(to, cc, bcc, subject, message);
         emailService.addEmail(to, cc, bcc, subject, message);
+        toggleCompose();
+        // onBack();
       }
     render() {
         const { to, cc, bcc, subject, message } = this.state;
@@ -49,7 +52,7 @@ export class EmailCompose extends React.Component {
                     <textarea id=" message" name="message" value={message} rows="4" cols="50" onChange={this.handleChange} >
                         
                     </textarea>
-                    <button>Send</button>
+                    <button >Send</button>
                     {/* <Link to={`/email`} >go back </Link> */}
                     <div className="goback-btn" onClick={() => toggleCompose()}> go back </div>
                     {/* <a href="#" onClick={this.onBack}>go back</a> */}

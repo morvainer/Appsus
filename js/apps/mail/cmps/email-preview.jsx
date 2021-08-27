@@ -5,7 +5,7 @@ export function EmailPreview ({email}) {
     // const getTextToShow = (text) => {
         
     // }
-console.log('email in preview',email);
+// console.log('email in preview',email);
    
 
     return (
