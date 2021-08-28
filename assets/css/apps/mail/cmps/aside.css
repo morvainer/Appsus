@@ -18,3 +18,12 @@ aside .aside{
 .aside-link{
     margin-top: 6px;
 }
+.aside-btn{
+    margin-bottom: 1rem;
+}
+
+.aside a{
+    margin-bottom: 1rem;
+    color: black;
+    font-weight: bold;
+}

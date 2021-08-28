@@ -52,9 +52,9 @@ export class EmailCompose extends React.Component {
                         
                     </textarea>
                     <button className={'send-btn'}>Send</button>
+                   <button className={'back-compose-btn'}> <Link  to={`/email/inbox`} onClick={() => toggleCompose()}><span>go back</span></Link></button>
                     {/* <Link to={`/email`} >go back </Link> */}
                     {/* <div className="goback-btn" onClick={() => toggleCompose()}> go back </div> */}
-                    <Link className={'back-compose-btn'} to={`/email/inbox`} onClick={() => toggleCompose()}>go back</Link>
                     {/* <a href="#" onClick={this.onBack}>go back</a> */}
                     {/* <Link to={`/email`}>Go Back</Link> */}
                 </form>
