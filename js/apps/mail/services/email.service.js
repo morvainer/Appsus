@@ -236,12 +236,12 @@ function query(sortBy, filterBy, folderForFilter) {//gets object //emailsReadFil
             if (folderForFilter === 'sent') {
                 console.log('filter is sent');
                 filteredFolders = gEmails.filter(email => {
-                    return (email.status === 'sent')
+                    return (email.status === 'sent') 
                 })
             } else if (folderForFilter === 'inbox') {
                 console.log('filter is inbox');
                 filteredFolders = gEmails.filter(email => {
-                    return (email.status === 'inbox')
+                    return (email.status === 'inbox') 
                 })
 
             }
@@ -252,22 +252,22 @@ function query(sortBy, filterBy, folderForFilter) {//gets object //emailsReadFil
             return Promise.resolve(emailsToShow)
         } else {
             if (search) {
-
-                emailsToShow = filteredFolders.filter(email => email.subject.includes(search))
+console.log('search is:', search);
+                emailsToShow = filteredFolders.filter(email => email.subject.toLowerCase().includes(search.toLowerCase()))
             }
             if (emailsReadFilter === 'read') {
                 emailsToShow = filteredFolders.filter(email => {
-                    return (email.isRead) && (email.subject.includes(search))
+                    return (email.isRead) && (email.subject.toLowerCase().includes(search.toLowerCase()))
                 })
             }
             else if (emailsReadFilter === 'unRead') {
                 emailsToShow = filteredFolders.filter(email => {
-                    return (!email.isRead) && email.subject.includes(search)
+                    return (!email.isRead) && email.subject.toLowerCase().includes(search.toLowerCase())
                 })
             }
             else if (emailsReadFilter === 'all') {
                 emailsToShow = filteredFolders.filter(email => {
-                    return (email) && email.subject.includes(search)
+                    return (email) && email.subject.toLowerCase().includes(search.toLowerCase())
                 })
             }
 

@@ -83,4 +83,11 @@ div.email-preview{
       right: 18rem;
       top: 1.5rem;
     }
+
+    .email-prev-date{
+      position: relative;
+      left: 8rem;
+      bottom: .5rem;
+      
+    }
   }
