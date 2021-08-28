@@ -1,0 +1,14 @@
+.book-filter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.book-filter input {
+  margin: 15px;
+}
+
+.book-filter button {
+  font-size: 1rem;
+  width: 50px;
+  border-radius: 5px;
+}

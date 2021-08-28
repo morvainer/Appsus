@@ -1,0 +1,37 @@
+/* @import './books/css/cmps/UserMsg.css'; */
+@import './css/cmps/BookDetails.css';
+@import './css/cmps/About.css';
+@import './css/cmps/AppHeader.css';
+@import './css/cmps/BookFilter.css';
+@import './css/cmps/BookList.css';
+@import './css/cmps/BookPreview.css';
+@import './css/cmps/BookReview.css';
+@import './css/cmps/Home.css';
+@import './css/cmps/BookAdd.css';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.red {
+  color: red;
+}
+
+.green {
+  color: green;
+}
+
+.logo {
+  font-size: 26px;
+}
+
+.long-text p {
+  font-weight: bold;
+}
+
+.long-text span:hover {
+  color: blue;
+  cursor: pointer;
+}

@@ -1,0 +1,14 @@
+.home {
+  text-align: center;
+}
+
+.home h1 {
+  margin: 15px 0;
+  font-size: 3rem;
+}
+
+.home-img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}

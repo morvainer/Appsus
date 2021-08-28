@@ -4,26 +4,16 @@
 
 .app-header {
   height: 80px;
-  background-color: #2e4052;
+  background-color: rgb(188, 230, 247);
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-
-.app-header h1 {
-  color: #fff;
-}
-
 .app-header :first-child {
   padding-left: 30px;
 }
 .app-header nav {
   padding-right: 30px;
-}
-
-.app-header nav a {
-  color: #fff;
-  text-decoration: none;
 }
 
 .app-header nav > *:not(:last-child) {

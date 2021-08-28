@@ -1,0 +1,46 @@
+.review {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.reviews-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.book-review {
+  border: 1px solid black;
+  position: relative;
+}
+
+.book-review .star {
+  color: rgb(248, 248, 15);
+  font-size: 2rem;
+}
+
+.book-review .remove-review {
+  position: absolute;
+  height: 15px;
+  top: 0;
+  right: 0;
+}
+
+.book-review span:hover {
+  color: red;
+  cursor: pointer;
+}
+
+.stars-rating label {
+  font-size: 3rem;
+  cursor: pointer;
+}
+
+.on {
+  color: yellow;
+}
+
+.off {
+  color: #ccc;
+}
