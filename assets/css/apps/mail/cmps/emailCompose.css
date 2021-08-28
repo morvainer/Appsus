@@ -1,5 +1,5 @@
 .email-compose{
-    background-color: indianred;
+    background-color: #EAEBED;
     padding: 10px;
     position: absolute;
     margin-top: 8rem;
@@ -48,8 +48,9 @@
     top: 10rem;
     right: 45.3rem;
     padding: 6px;
-    color: black;
+    color: whitesmoke;
     border-bottom: black 1px solid;
+    background-color: #1D7874;
 
 } 
 
@@ -63,13 +64,14 @@
     margin-top: 12rem;
     text-decoration: none;
     padding: 6px;
-    color: black;
+    /* color: black; */
     border-bottom: black 1px solid;
+    background-color: #1D7874;
     
 }
 .back-compose-btn a{
     text-decoration: none;
-    color: black;
+    color: whitesmoke;
     border-radius: 6px;
     
 }
