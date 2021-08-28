@@ -10,17 +10,20 @@ display: inline-block;
 .email-filter h3{
     position: relative;
     left: 16rem;
-    bottom: 1.2rem;
+    /* bottom: 1.2rem; */
 }
 
 .email-filter select{
     position: relative;
     left: 22rem;
-    bottom: 3.5rem;
+    bottom: 1.3rem;
 }
 
 .email-filter input{
     position: relative;
     left: 1rem;
     top: 1.5rem;
+    padding: 6px;
+    border-radius: 6px;
+    border: none;
 }

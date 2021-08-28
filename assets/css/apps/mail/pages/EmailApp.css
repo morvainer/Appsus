@@ -8,11 +8,16 @@
     /* max-height: 800px; */
     height: 600px;
     margin: 0 auto;
-    background-color: grey;
+    background-color:rgb(207, 201, 201);
+    border: rgb(61, 61, 61) 1px solid;
     width: 100%;
+    position: relative;
+    top: 1rem;
+    border-radius: 6px;
 }
 
 .email-app{
     flex-grow: 3;
+
 }
 
