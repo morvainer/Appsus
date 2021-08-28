@@ -1,0 +1,39 @@
+.note-add-container {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  box-shadow: 0 0 5px 0 #00000013;
+  border-radius: 7px;
+  width: 100%;
+  margin-inline-start: 10px;
+  margin-inline-end: 10px;
+  margin-bottom: 20px;
+}
+.note-add-container input {
+  border: none;
+  font-size: 1.5rem;
+  padding: 5px;
+  width: 100%;
+}
+
+.note-add-container button {
+  background-color: transparent;
+  border: none;
+  color: lightgray;
+  font-size: 1.5rem;
+  z-index: 5;
+}
+
+.note-add-container .active {
+  color: black;
+}
+
+.note-add-container button:hover {
+  cursor: pointer;
+  color: #000;
+}
+
+.note-add-btns-container {
+  display: flex;
+  justify-content: space-between;
+}

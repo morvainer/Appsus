@@ -1,2 +1,7 @@
 @import './cmps/note-preview.css';
 @import './cmps/ColorInput.css';
+@import './pages/notes-app.css';
+@import './cmps/note-add.css';
+@import './cmps/note-list.css';
+@import './cmps/note-btns.css';
+@import './cmps/note-add-btns.css';

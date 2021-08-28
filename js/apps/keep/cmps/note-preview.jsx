@@ -4,6 +4,7 @@ import { NoteVideo } from './note-video.jsx';
 import { NoteTodo } from './note-todos.jsx';
 import { ColorInput } from './ColorInput.jsx';
 import { noteService } from '../services/note.service.js';
+import { NoteButtons } from './note-btns.jsx';
 
 export class NotePreview extends React.Component {
   state = {
@@ -49,7 +50,7 @@ export class NotePreview extends React.Component {
       }
     };
     return (
-      <article
+      <div
         className={'note-preview'}
         style={{ backgroundColor: note.backgroundColor }}
       >
@@ -68,16 +69,25 @@ export class NotePreview extends React.Component {
         {note.type === 'todo' && (
           <NoteTodo note={note} onSave={this.props.onSave} />
         )}
-        <div className='note-preview-btns'>
-          <button onClick={() => this.props.handleRemoveNote(note.id)}>
+        {/* <div className='note-preview-btns'> */}
+        {/* <button onClick={() => this.props.handleRemoveNote(note.id)}>
             -
-          </button>
-        </div>
-        <button onClick={() => this.props.onPinNote(note)}>PIN</button>
+          </button> */}
+        {/* </div> */}
+
+        <NoteButtons
+          onPinNote={this.props.onPinNote}
+          onToggleEdit={this.props.onToggleEdit}
+          onCloneNote={this.props.onCloneNote}
+          handleChange={this.handleChange}
+          onRemoveNote={this.props.handleRemoveNote}
+          note={note}
+        />
+        {/* <button onClick={() => this.props.onPinNote(note)}>PIN</button>
         <button onClick={() => this.props.onToggleEdit(note)}>Edit</button>
         <button onClick={() => this.props.onCloneNote(note)}>Clone</button>
-        <ColorInput handleChange={this.handleChange} />
-      </article>
+        <ColorInput handleChange={this.handleChange} /> */}
+      </div>
     );
   }
 }

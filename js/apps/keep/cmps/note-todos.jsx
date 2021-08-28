@@ -37,26 +37,13 @@ export class NoteTodo extends React.Component {
     this.props.onSave(note);
   };
 
-  // saveLabelChanges = (ev) => {
-  //   ev.preventDefault();
-  //   const { label } = this.state.note.info;
-  //   // console.log(todos);
-  //   // todos.push(this.state.newTodo);
-  //   // const note = this.state.note;
-  //   // this.setState({:{label}})
-  //   // console.log(todos);
-
-  //   // const note = this.state.note;
-  //   console.log(label);
-  // };
-
   render() {
     const { note } = this.props;
     if (!this.state.note) return <h1>loading...</h1>;
     const { label, todos } = this.state.note.info;
     return (
       <div className='note-todo'>
-        <h2>Todo Note</h2>
+        <i className='fas fa-list'></i>
         {!note.isEditOn && <h3 id={note.id}>{label}</h3>}
         {note.isEditOn && (
           <form onSubmit={this.saveChanges}>
@@ -90,16 +77,3 @@ export class NoteTodo extends React.Component {
     );
   }
 }
-
-// render() {
-//   return (
-//     <React.Fragment>
-//       <h1>Todo Note</h1>
-//       <ul>
-//         {note.info.todos.map((todo, idx) => {
-//           return <ToDoItem key={idx} todo={todo} />;
-//         })}
-//       </ul>
-//     </React.Fragment>
-//   );
-// }
