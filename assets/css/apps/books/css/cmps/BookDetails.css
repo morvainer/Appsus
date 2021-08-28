@@ -1,7 +1,7 @@
 .books-details {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .books-details p {
@@ -11,6 +11,7 @@
 .books-details img {
   margin-bottom: 10px;
   border: 1px solid black;
+  align-self: center;
 }
 
 .on-sale {
@@ -18,14 +19,39 @@
 }
 
 .book-navigation.next {
-  position: absolute;
+  position: relative;
   right: 0;
   bottom: 0;
 }
 
 .book-navigation.previous {
-  position: absolute;
+  position: relative;
   bottom: 0;
 
   left: 0;
+}
+
+.books-details-content {
+  padding-left: 10px;
+  margin-bottom: 16px;
+}
+
+.books-details-content > * {
+  margin-bottom: 6px;
+}
+
+.navigation-buttons-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 16px;
+}
+
+.go-back-btn {
+  margin-left: 16px;
+  margin-bottom: 22px;
+  font-size: 1rem;
+  padding: 6px;
+  border-bottom: 1px solid #000;
+  border-radius: 5px;
 }

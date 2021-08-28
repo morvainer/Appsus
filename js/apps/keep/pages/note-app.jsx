@@ -68,7 +68,7 @@ export class NoteApp extends React.Component {
     const { notes } = this.state;
     return (
       <section className='notes-app flex align-center'>
-        <h1>NoteApp</h1>
+        <h1 className='note-app-title'>NoteApp</h1>
         <NoteFilter
           filterBy={this.state.filterBy}
           onSetFilter={this.onSetFilter}

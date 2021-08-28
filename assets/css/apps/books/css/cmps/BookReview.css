@@ -2,17 +2,28 @@
   display: flex;
   flex-direction: column;
   gap: 15px;
+  align-self: center;
+  width: 600px;
+  border: 1px solid rgb(92, 92, 92);
+  padding: 10px;
 }
 
 .reviews-list {
   display: flex;
   flex-direction: column;
   gap: 15px;
+  align-self: center;
 }
 
 .book-review {
-  border: 1px solid black;
   position: relative;
+  border: 1px solid gray;
+  padding: 10px;
+  border-radius: 6px;
+}
+
+.book-review h4 {
+  margin-bottom: 6px;
 }
 
 .book-review .star {
@@ -43,4 +54,13 @@
 
 .off {
   color: #ccc;
+}
+
+.leave-review-title {
+  display: flex;
+  align-self: center;
+}
+
+button.add-review-btn {
+  font-size: 1.5rem;
 }

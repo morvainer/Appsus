@@ -1,0 +1,32 @@
+.home {
+  background-color: #e6ebe0;
+}
+
+.home i {
+  margin-top: 50%;
+  font-size: 5rem;
+  margin: 15px;
+  padding: 5px;
+  text-align: center;
+  height: 100vh;
+}
+.home h1 {
+  margin-top: 15px;
+  padding-top: 75px;
+}
+
+.home .mail-icon {
+  color: #ed6a5a;
+}
+
+.home .note-icon {
+  color: #e0d83e;
+}
+
+.home .book-icon {
+  color: #9bc1bc;
+}
+
+.home-icons-container {
+  padding-top: 80px;
+}

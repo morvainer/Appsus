@@ -10,3 +10,8 @@ body {
   min-width: 350px;
   max-width: 1300px; */
 }
+
+.note-app-title {
+  margin-top: 16px;
+  font-size: 2.5rem;
+}

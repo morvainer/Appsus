@@ -67,49 +67,55 @@ export class BookDetails extends React.Component {
     return (
       <section className='books-details'>
         <img src={book.thumbnail} />
-        <h1>Title: {book.title}</h1>
-        <h2> Subtitle: {book.subtitle}</h2>
-        <h3>
-          {book.authors.length > 1 ? 'Authors' : 'Author'}:{' '}
-          {book.authors.join(',')}
-        </h3>
-        <h3>
-          Published Date: {book.publishedDate} - {this.publishedDateText()}
-        </h3>
-        <h3>Description:</h3>
-        <LongTxt text={book.description} />
-        <h3>
-          Page Count: {book.pageCount} - {this.pageCountText()}
-        </h3>
-        <h3>categories: {book.categories.join(',')}</h3>
-        <h3>language: {book.language}</h3>
-        <h3 className={this.getClass()}>
-          Price:{' '}
-          {book.listPrice['amount'] +
-            utilService.getCurrencyIcon(book.listPrice['currencyCode'])}{' '}
-        </h3>
-        <h3>
-          On Sale:{' '}
-          {book.listPrice['isOnSale'] ? (
-            <img className='on-sale' src='../assets/img/onsale.png' />
-          ) : (
-            'NO'
-          )}
-        </h3>
-        <button onClick={this.onBack}>Go Back</button>
+        <div className='books-details-content'>
+          <h1>Title: {book.title}</h1>
+          <h2> Subtitle: {book.subtitle}</h2>
+          <h3>
+            {book.authors.length > 1 ? 'Authors' : 'Author'}:{' '}
+            {book.authors.join(',')}
+          </h3>
+          <h3>
+            Published Date: {book.publishedDate} - {this.publishedDateText()}
+          </h3>
+          <h3>Description:</h3>
+          <LongTxt text={book.description} />
+          <h3>
+            Page Count: {book.pageCount} - {this.pageCountText()}
+          </h3>
+          <h3>categories: {book.categories.join(',')}</h3>
+          <h3>language: {book.language}</h3>
+          <h3 className={this.getClass()}>
+            Price:{' '}
+            {book.listPrice['amount'] +
+              utilService.getCurrencyIcon(book.listPrice['currencyCode'])}{' '}
+          </h3>
+          <h3>
+            On Sale:{' '}
+            {book.listPrice['isOnSale'] ? (
+              <img className='on-sale' src='../assets/img/onsale.png' />
+            ) : (
+              'NO'
+            )}
+          </h3>
+        </div>
         <ReviewAdd bookId={book.id} />
-        <Link
-          className='book-navigation next'
-          to={`/books/book/${bookService.getNextBookId(book.id)}`}
-        >
-          Next Book
-        </Link>
-        <Link
-          className='book-navigation previous'
-          to={`/books/book/${bookService.getPreviousBookId(book.id)}`}
-        >
-          Previous Book
-        </Link>
+        <div className='navigation-buttons-container'>
+          <Link
+            className='book-navigation previous'
+            to={`/books/book/${bookService.getPreviousBookId(book.id)}`}
+          >
+            Previous Book
+          </Link>
+          <Link
+            className='book-navigation next'
+            to={`/books/book/${bookService.getNextBookId(book.id)}`}
+          >
+            Next Book
+          </Link>
+        </div>
+        <button className='go-back-btn' onClick={this.onBack}>
+          Go Back
+        </button>
       </section>
     );
   }

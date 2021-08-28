@@ -35,7 +35,7 @@ export class NoteButtons extends React.Component {
           <i className='far fa-edit'></i>
         </button>
         <button onClick={() => onCloneNote(note)}>
-          <i class='fas fa-clone'></i>
+          <i className='fas fa-clone'></i>
         </button>
         <button onClick={() => onRemoveNote(note.id)}>
           <i className='fas fa-trash-alt'></i>

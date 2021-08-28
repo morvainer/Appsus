@@ -66,7 +66,7 @@ export class ReviewAdd extends React.Component {
           handleDelete={this.handleDeleteReview}
         />
 
-        <h1>Leave a review!</h1>
+        <h1 className='leave-review-title'>Leave a review!</h1>
         <label htmlFor='username'>Name:</label>
         <input
           type='text'
@@ -90,7 +90,7 @@ export class ReviewAdd extends React.Component {
           rows='4'
           onChange={this.handleChange}
         />
-        <button>Add Review</button>
+        <button className='add-review-btn'>Add Review</button>
       </form>
     );
   }
