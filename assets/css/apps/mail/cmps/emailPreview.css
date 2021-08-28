@@ -80,20 +80,22 @@ div.email-preview {
 /* } */
 /* MOBILE */
 
-/* @media only screen and (max-width: 600px) {
-  .email-preview {
-    width: 250px;
+@media only screen and (max-width: 600px) {
+  .email-preview-container {
+    font-size: 10px;
+    /* width: 250px;
     height: 80px;
-    padding: 0.5rem;
+    padding: 0.5rem; */
   }
-  .email-preview-div.email-prev-message {
+ 
+  /* .email-preview-div.email-prev-message {
     position: relative;
     right: 18rem;
     top: 1.5rem;
-  }
-  .email-prev-date {
+  } */
+  /* .email-prev-date {
     position: relative;
     left: 8rem;
     bottom: 0.5rem;
-  }
-} */
+  } */
+}

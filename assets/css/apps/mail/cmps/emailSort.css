@@ -19,13 +19,13 @@
 }
 /* } */
 
-/* @media only screen and (max-width: 600px) {
-  .email-sort-title {
+@media only screen and (max-width: 600px) {
+  /* .email-sort-title {
     display: none;
-  }
+  } */
   .email-sort select {
-    position: relative;
+    position: relative; 
     left: -21rem;
-    top: 0.35rem;
+     top: 0.35rem;
   }
-} */
+}

@@ -73,8 +73,8 @@
   border-radius: 6px;
 }
 /* } */
-/* @media only screen and (max-width: 600px) {
-    .email-compose {
+@media only screen and (max-width: 600px) {
+    /* .email-compose {
         position: absolute;
         margin-left: unset;
         top: 12rem;
@@ -82,16 +82,16 @@
         height: 30vh;
         width: 16rem;
         z-index: 5;
-    }
-    .send-btn {
+    } */
+    /* .send-btn {
         position: relative;
         top: -5rem;
         right: -0.7rem;
         padding: 6px;
         color: black;
         border-bottom: black 1px solid;
-    }
-    .back-compose-btn {
+    } */
+    /* .back-compose-btn {
         display: inline;
         position: relative;
         bottom: 5rem;
@@ -101,27 +101,27 @@
         padding: 6px;
         color: black;
         border-bottom: black 1px solid;
-    }
-    .message-input {
+    } */
+    /* .message-input {
         position: relative;
         top: 5rem;
         right: -0.8rem;
         width: 13rem;
-    }
-    .subject-input {
+    } */
+    /* .subject-input {
         position: relative;
         top: 2rem;
         right: -6.35rem;
         width: 8rem;
-    }
-    .subject-label {
+    } */
+    /* .subject-label {
         position: relative;
         top: 3.5rem;
         right: 9rem;
-    }
-    .to-input {
+    } */
+    /* .to-input {
         position: relative;
         left: 5rem;
         width: 8rem;
-    }
-} */
+    } */
+}

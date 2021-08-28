@@ -19,10 +19,10 @@
   flex-grow: 3;
 }
 
-/* } */
 
-/* @media only screen and (max-width: 600px) { */
-/* .main-layout {
-  max-width: 350px;
-} */
-/* } */
+
+@media only screen and (max-width: 600px) { 
+.main-layout {
+  max-width: 450px;
+}
+ }
