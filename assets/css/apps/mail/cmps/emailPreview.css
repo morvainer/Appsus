@@ -1,93 +1,70 @@
-
-
-.email-preview-div{
-    display: inline;
-    margin: 10px;
-    color: black;
-    /* font-weight: bold; */
-   
+.email-preview-div {
+  display: inline;
+  margin: 10px;
+  color: black;
 }
-  
-  
 
-
-div.email-preview{
-    /* border: black solid 1px; */
-    margin: 10px;
-    border-bottom: #3a3939 2px solid;
-   
+div.email-preview {
+  margin: 10px;
+  border-bottom: #3a3939 2px solid;
 }
+
 .email-preview {
   height: 3.5vh;
   border-radius: 6px;
 }
-/* .bold{
-    font-weight: bold;
-    
-  } */
 
-  /* .read{
-    background-color: rgb(201, 191, 191);
-
-  } */
-.mail-read{
-    background-color: rgb(209, 209, 209);
-    font-weight: normal;
+.mail-read {
+  background-color: rgb(209, 209, 209);
+  font-weight: normal;
 }
-.not-read{
-    font-weight: bold;
-    background-color: white;
-    
-  }
-.sent-mail{
-    background-color: white;
+
+.not-read {
+  font-weight: bold;
+  background-color: white;
 }
-  /* .email-preview{
-    border: black solid 1px;
-  } */
 
-  .email-prev-date{
-    position: relative;
-    left: 46rem;
-    bottom: 1.5rem;
-    
+.sent-mail {
+  background-color: white;
+}
+
+.email-prev-date {
+  position: relative;
+  left: 46rem;
+  bottom: 1.5rem;
+}
+
+.email-prev-from {
+  position: relative;
+  top: .5rem;
+}
+
+.email-prev-subject {
+  position: relative;
+  top: .5rem;
+}
+
+.email-prev-message {
+  position: relative;
+  top: .5rem;
+}
+
+/* MOBILE */
+
+@media only screen and (max-width: 600px) {
+  .email-preview {
+    width: 250px;
+    height: 80px;
+    padding: .5rem;
   }
-
-  .email-prev-from{
+  .email-preview-div.email-prev-message {
     position: relative;
-    top: .5rem;
-  } 
-  
-  .email-prev-subject {
+    right: 18rem;
+    top: 1.5rem;
+  }
+  .email-prev-date {
     position: relative;
-    top: .5rem;
+    left: 8rem;
+    bottom: .5rem;
   }
-
-  .email-prev-message{
-    position: relative;
-    top: .5rem;
-  }
-
-  /* MOBILE */
-
-  @media only screen and (max-width: 600px) {
-    .email-preview{
-      width: 250px;
-      height: 80px;
-      /* position: absolute; */
-      padding: .5rem;
-    }
-
-    .email-preview-div.email-prev-message{
-      position: relative;
-      right: 18rem;
-      top: 1.5rem;
-    }
-
-    .email-prev-date{
-      position: relative;
-      left: 8rem;
-      bottom: .5rem;
-      
-    }
-  }
+}

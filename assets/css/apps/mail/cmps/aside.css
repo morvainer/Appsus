@@ -1,28 +1,29 @@
-
-.aside-main{
-    margin: 10px; 
+.aside-main {
+    margin: 10px;
 }
-.aside{
+
+.aside {
     border-right: solid 1px black;
     display: inline-block;
     background-color: rgb(246, 244, 244);
-    /* position: absolute; */
     padding: 10px;
-    /* margin: 10px; */
     display: flex;
     flex-direction: column;
 }
-aside .aside{
-    margin: 10px; 
+
+aside .aside {
+    margin: 10px;
 }
-.aside-link{
+
+.aside-link {
     margin-top: 6px;
 }
-.aside-btn{
+
+.aside-btn {
     margin-bottom: 1rem;
 }
 
-.aside a{
+.aside a {
     margin-bottom: 1rem;
     color: black;
     font-weight: bold;

@@ -1,49 +1,45 @@
-.email-compose{
+.email-compose {
     background-color: #EAEBED;
     padding: 10px;
     position: absolute;
     margin-top: 8rem;
-    /* margin-left: .3rem; */
     top: 12rem;
     left: 7.7rem;
     height: 30vh;
     width: 54.5rem;
     border-bottom: 2px solid black;
     box-shadow: -4px -2px 17px 1px;
-    /* border-left: 2px solid black; */
-    /* border-right: 2px solid black; */
 }
 
-
-.to-input{
+.to-input {
     position: relative;
     left: 3rem
 }
-.to-label{
+
+.to-label {
     position: relative;
     left: .2rem
 }
-.subject-label{
+
+.subject-label {
     position: relative;
     top: 2rem;
     right: 12rem;
-
 }
-.subject-input{
+
+.subject-input {
     position: relative;
     top: 2rem;
     right: 11.35rem;
-    
-
 }
 
-.message-input{
+.message-input {
     position: relative;
     top: 8rem;
     right: 22.2rem;
 }
 
-.send-btn{
+.send-btn {
     position: relative;
     top: 10rem;
     right: 45.3rem;
@@ -51,59 +47,47 @@
     color: whitesmoke;
     border-bottom: black 1px solid;
     background-color: #1D7874;
+}
 
-} 
-
-.back-compose-btn{
+.back-compose-btn {
     display: inline;
     position: relative;
-    /* width: 20rem; */
-    /* top: -1rem; */
     bottom: 4rem;
     left: 23.5rem;
     margin-top: 12rem;
     text-decoration: none;
     padding: 6px;
-    /* color: black; */
     border-bottom: black 1px solid;
     background-color: #1D7874;
-    
 }
-.back-compose-btn a{
+
+.back-compose-btn a {
     text-decoration: none;
     color: whitesmoke;
     border-radius: 6px;
-    
 }
+
 @media only screen and (max-width: 600px) {
-    .email-compose{
-        
+    .email-compose {
         position: absolute;
-        /* margin-top: 8rem; */
         margin-left: unset;
         top: 12rem;
         left: 5.7rem;
         height: 30vh;
         width: 16rem;
         z-index: 5;
-       
     }
-
-    .send-btn{
+    .send-btn {
         position: relative;
         top: -5rem;
-        right:-0.7rem;
+        right: -0.7rem;
         padding: 6px;
         color: black;
         border-bottom: black 1px solid;
-    
-    } 
-    
-    .back-compose-btn{
+    }
+    .back-compose-btn {
         display: inline;
         position: relative;
-        /* width: 20rem; */
-        /* top: -1rem; */
         bottom: 5rem;
         left: 6.5rem;
         margin-top: 12rem;
@@ -111,35 +95,27 @@
         padding: 6px;
         color: black;
         border-bottom: black 1px solid;
-        
     }
-    .message-input{
+    .message-input {
         position: relative;
         top: 5rem;
         right: -0.8rem;
         width: 13rem;
     }
-
-    .subject-input{
+    .subject-input {
         position: relative;
         top: 2rem;
         right: -6.35rem;
         width: 8rem;
-        
-    
     }
-
-    .subject-label{
+    .subject-label {
         position: relative;
         top: 3.5rem;
         right: 9rem;
-    
     }
-
-    .to-input{
+    .to-input {
         position: relative;
         left: 5rem;
         width: 8rem;
     }
-   
 }
