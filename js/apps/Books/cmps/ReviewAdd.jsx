@@ -18,7 +18,6 @@ export class ReviewAdd extends React.Component {
     const id = this.props.bookId;
     if (!id) return;
     bookService.getReviews(id).then((reviews) => {
-      console.log(reviews);
       this.setState({ listOfReviews: reviews });
     });
   }

@@ -421,7 +421,6 @@ function query(filterBy) {
         book.listPrice['amount'] >= minPrice
       );
     });
-    console.log(booksToShow);
     return Promise.resolve(booksToShow);
   }
   return Promise.resolve(gBooks);
@@ -521,7 +520,6 @@ function _saveBooksToStorage() {
 function getBooksFromApi(bookName) {
   const url = `https://www.googleapis.com/books/v1/volumes?printType=books&q=${bookName}`;
   return axios.get(url).then((res) => {
-    console.log(res);
     return res.data.items;
   });
 }
