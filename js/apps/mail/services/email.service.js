@@ -372,16 +372,16 @@ function countUnreadMails() {
     return Promise.resolve(count)
 }
 
-function addEmail(to, cc, bcc, subject, message) {
+function addEmail(to, subject, message) {
     // let nameOfSender = prompt('enter name');
     // let nameOfTitle = prompt('enter title');
-    _createEmail(to, cc, bcc, subject, message);
+    _createEmail(to, subject, message);
     console.log('gEmails', gEmails);
     return Promise.resolve()
     // storageService.saveToStorage('emailsDB', gEmails)
 }
 
-function _createEmail(toEmail, cc, bcc, subject, message) {
+function _createEmail(toEmail, subject, message) {
 
     let date = new Date((new Date()).valueOf() + 1 * 3600 * 24).toISOString().split('T')[0].split('-').reverse().join('-')
     const email = {
@@ -394,7 +394,7 @@ function _createEmail(toEmail, cc, bcc, subject, message) {
         message,
         isRead: false,
         sentAt: date,
-        status: 'inbox'
+        status: 'sent'
 
         // new Date((new Date()).valueOf() + 1*3600*24).toISOString().split('T')[0].split('-').reverse().join('-'),
         // new Date().toISOString().split('T')[0].split('-').reverse().join('-'),
