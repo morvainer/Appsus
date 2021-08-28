@@ -23,11 +23,12 @@ export class LongTxt extends React.Component {
         const { isLongTxtShown } = this.state
         const { text } = this.props
 
-        return <p className="email-message">
+        return <div className="email-message">
             {this.getTextToShow(text)}
             {/* {text.length > 10 && <span onClick={() => this.onToggleText()}>
                 {isLongTxtShown ? ' Less...' : ' More...'}</span>} */}
-        </p>
+        </div>
     }
 
 }
+

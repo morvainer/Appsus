@@ -11,7 +11,7 @@
   
 
 
-article.email-preview{
+div.email-preview{
     /* border: black solid 1px; */
     margin: 10px;
     border-bottom: #3a3939 2px solid;
@@ -66,4 +66,21 @@ article.email-preview{
   .email-prev-message{
     position: relative;
     top: .5rem;
+  }
+
+  /* MOBILE */
+
+  @media only screen and (max-width: 600px) {
+    .email-preview{
+      width: 250px;
+      height: 80px;
+      /* position: absolute; */
+      padding: .5rem;
+    }
+
+    .email-preview-div.email-prev-message{
+      position: relative;
+      right: 18rem;
+      top: 1.5rem;
+    }
   }

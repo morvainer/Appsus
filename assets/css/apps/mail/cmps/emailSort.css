@@ -17,3 +17,18 @@
     top: 1.3rem;
     color: rgb(20, 20, 20);
 }
+
+@media only screen and (max-width: 600px) {
+    .email-sort-title {
+        display: none;
+    }
+    .email-sort select {
+        position: relative;
+        left: -21rem;
+        top: .35rem;
+        /* margin-left: 1rem; */
+        /* bottom: -1rem; */
+    
+
+    }
+}

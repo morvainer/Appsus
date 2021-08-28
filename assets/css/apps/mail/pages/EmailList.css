@@ -36,4 +36,14 @@
     bottom: 1rem;
   }
 
- 
+
+  /* MOBILE */
+
+  @media only screen and (max-width: 600px) {
+    .email-message{
+      position: relative;
+      /* left: 18rem; */
+      /* bottom: 1rem; */
+      
+    }
+  }

@@ -27,3 +27,29 @@ display: inline-block;
     border-radius: 6px;
     border: none;
 }
+
+@media only screen and (max-width: 600px) {
+    .email-filter h3{
+        position: relative;
+        left: 10rem;
+        font-size: 13px;
+        display: none;
+        /* bottom: 1.2rem; */
+    }
+
+    .email-filter select{
+        position: relative;
+        left: 1rem;
+        bottom: 1.3rem;
+        margin-bottom: 2rem;
+    }
+
+    .email-filter input{
+        position: relative;
+        left: 1rem;
+        top: 2rem;
+        padding: 6px;
+        border-radius: 6px;
+        border: none;
+    }
+  }
