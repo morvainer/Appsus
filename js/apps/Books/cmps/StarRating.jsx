@@ -6,6 +6,7 @@ export class StarRating extends React.Component {
 
   setRating = (idx) => {
     this.setState({ rating: idx });
+    this.props.rate(idx);
   };
 
   setHover = (rate) => {

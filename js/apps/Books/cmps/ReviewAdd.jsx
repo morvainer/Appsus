@@ -54,6 +54,12 @@ export class ReviewAdd extends React.Component {
     }));
   };
 
+  setRate = (rate) => {
+    this.setState((prevState) => ({
+      review: { ...prevState.review, ['rate']: rate },
+    }));
+  };
+
   render() {
     const { id, name, rate, text } = this.state.review;
     const { listOfReviews } = this.state;
@@ -81,7 +87,7 @@ export class ReviewAdd extends React.Component {
           <option value='4'>4</option>
           <option value='5'>5</option>
         </select> */}
-        <StarRating rate={rate} handleChange={this.handleChange} />
+        <StarRating rate={this.setRate} handleChange={this.handleChange} />
 
         <label htmlFor='review'>Review:</label>
         <textarea
