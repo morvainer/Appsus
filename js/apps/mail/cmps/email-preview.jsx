@@ -1,18 +1,25 @@
-
-import { LongTxt } from "../../../cmps-general/LongTxt.jsx"
+import { LongTxt } from '../../../cmps-general/LongTxt.jsx';
 
 export function EmailPreview({ email }) {
-
-    return (
-        <div className={`email-preview  ${(!email.isRead) && email.status === 'inbox' ? 'not-read' : 'mail-read'} 
-         ${(email.status === 'sent') ? 'sent-mail' : ''}`}>
-            <div className="email-preview-div email-prev-from">  {email.fromName} </div>
-            <div className="email-preview-div email-prev-subject">{email.subject} - </div>
-            <div className="email-preview-div email-prev-message">
-                <LongTxt text={email.message} />
-            </div>
-            <div className="email-preview-div email-prev-date">  {email.sentAt}</div>
-        </div>
-    )
-
+  return (
+    <div
+      className={`email-preview-container  ${
+        !email.isRead && email.status === 'inbox' ? 'not-read' : 'mail-read'
+      } 
+         ${email.status === 'sent' ? 'sent-mail' : ''}`}
+    >
+      <div className='email-prev-item'>
+        <h3 className=''> {email.fromName} </h3>
+      </div>
+      <div className='email-prev-item'>
+        <h3 className=''>{email.subject} - </h3>
+      </div>
+      <div className='email-prev-item message'>
+        <LongTxt text={email.message} />
+      </div>
+      <div className='email-prev-item'>
+        <h3 className=''> {email.sentAt}</h3>
+      </div>
+    </div>
+  );
 }

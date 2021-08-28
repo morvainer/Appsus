@@ -1,33 +1,33 @@
-@media only screen and (min-width: 1000px) {
+/* @media only screen and (min-width: 1000px) { */
 
 .aside-main {
-    margin: 10px;
+  margin: 10px;
 }
 
 .aside {
-    border-right: solid 1px black;
-    display: inline-block;
-    background-color: rgb(246, 244, 244);
-    padding: 10px;
-    display: flex;
-    flex-direction: column;
+  border-right: solid 1px black;
+  display: inline-block;
+  background-color: rgb(246, 244, 244);
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
 }
 
 aside .aside {
-    margin: 10px;
+  margin: 10px;
 }
 
 .aside-link {
-    margin-top: 6px;
+  margin-top: 6px;
 }
 
 .aside-btn {
-    margin-bottom: 1rem;
+  margin-bottom: 1rem;
 }
 
 .aside a {
-    margin-bottom: 1rem;
-    color: black;
-    font-weight: bold;
+  margin-bottom: 1rem;
+  color: black;
+  font-weight: bold;
 }
-}
+/* } */

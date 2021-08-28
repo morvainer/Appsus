@@ -1,41 +1,40 @@
-@media only screen and (min-width: 1000px) {
-
+/* @media only screen and (min-width: 1000px) { */
 .email-details-div {
-    background-color: rgb(245, 241, 241);
+  background-color: rgb(245, 241, 241);
 }
 
 .back-btn-emaildetails a {
-    text-decoration: none;
-    color: whitesmoke;
+  text-decoration: none;
+  color: whitesmoke;
 }
 
 .email-det-title {
-    font-weight: bold;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    margin-left: 10px;
+  font-weight: bold;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 10px;
 }
 
 .email-det-from {
-    margin-left: 10px;
+  margin-left: 10px;
 }
 
 .email-det-message {
-    margin-left: 10px;
-    margin: 10px;
+  margin-left: 10px;
+  margin: 10px;
 }
 
 .del-btn-emaildetails {
-    margin-left: 10px;
-    margin-right: 10px;
-    padding: 3px;
-    background-color: #1D7874;
-    color: whitesmoke;
+  margin-left: 10px;
+  margin-right: 10px;
+  padding: 3px;
+  background-color: #1d7874;
+  color: whitesmoke;
 }
 
 .back-btn-emaildetails {
-    padding: 3px;
-    background-color: #1D7874;
-    color: whitesmoke;
+  padding: 3px;
+  background-color: #1d7874;
+  color: whitesmoke;
 }
-}
+/* } */

@@ -1,33 +1,31 @@
-@media only screen and (min-width: 1000px) {
-
+/* @media only screen and (min-width: 1000px) { */
 .email-sort {
-    position: relative;
-    left: 20rem;
+  position: relative;
+  left: 20rem;
 }
 
 .email-sort select {
-    position: relative;
-    left: 10rem;
-    top: 1.4rem;
-    margin-left: 1rem;
+  position: relative;
+  left: 10rem;
+  top: 1.4rem;
+  margin-left: 1rem;
 }
 
 .email-sort-title {
+  position: relative;
+  left: 30rem;
+  top: 1.3rem;
+  color: rgb(20, 20, 20);
+}
+/* } */
+
+/* @media only screen and (max-width: 600px) {
+  .email-sort-title {
+    display: none;
+  }
+  .email-sort select {
     position: relative;
-    left: 30rem;
-    top: 1.3rem;
-    color: rgb(20, 20, 20);
-}
-
-@media only screen and (max-width: 600px) {
-    .email-sort-title {
-        display: none;
-    }
-    .email-sort select {
-        position: relative;
-        left: -21rem;
-        top: .35rem;
-    }
-}
-
-}
+    left: -21rem;
+    top: 0.35rem;
+  }
+} */
