@@ -10,6 +10,8 @@ export class EmailCompose extends React.Component {
   };
 
   componentDidMount() {
+    const { match } = this.props;
+    if (!match) return;
     const { noteid } = this.props.match.params;
     if (!noteid) return;
     var note = noteService.getNoteById(noteid).then((note) => {
