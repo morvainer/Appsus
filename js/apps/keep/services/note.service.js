@@ -13,6 +13,8 @@ export const noteService = {
   toggleEdit,
   changeBackground,
   cloneNote,
+  getNoteById,
+  saveEmailAsNote,
 };
 
 const KEY = 'noteDB';
@@ -390,5 +392,21 @@ function cloneNote(note) {
   gNotes.push(clonedNote);
 
   _saveNotesToStorage();
+  return Promise.resolve();
+}
+
+function saveEmailAsNote(email) {
+  const newNote = {
+    id: utilService.makeId(),
+    type: 'text',
+    info: { text: email.message },
+    isPinned: false,
+    backgroundColor: utilService.getRandomColor(), //change random color
+  };
+
+  gNotes.push(newNote);
+  console.log(gNotes);
+  _saveNotesToStorage();
+
   return Promise.resolve();
 }

@@ -17,3 +17,7 @@
   transition: 0.4s;
   border: none;
 }
+
+.email-btn {
+  color: black;
+}

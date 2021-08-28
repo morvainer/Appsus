@@ -45,7 +45,12 @@ export class NoteButtons extends React.Component {
           <i className='fas fa-palette'></i>
         </button>
 
-        {/* <Link to={`/email/compose/${note.id}`}>email</Link> */}
+        <button>
+          {' '}
+          <Link to={`/email/compose/${note.id}`}>
+            <i className='fas fa-envelope email-btn'></i>
+          </Link>
+        </button>
         {this.state.isColorsShown && <ColorInput handleChange={handleChange} />}
       </div>
     );
