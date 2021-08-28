@@ -1,3 +1,5 @@
+const { Link } = ReactRouterDOM
+
 import { emailService } from '../services/email.service.js'
 import { eventBusService } from '../../../services-general/event-bus-service.js'
 
@@ -81,6 +83,7 @@ export class EmailDetails extends React.Component {
                 <div>Subject: {currEmail.subject}</div>
                 <div>Message: {currEmail.message}</div>
                 <button onClick={() => this.onDeleteEmail()}>Delete Email </button>
+                <Link to={`/email/inbox`} >go back</Link>
             </div>
         )
     }

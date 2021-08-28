@@ -9,7 +9,7 @@ export function EmailList({emails}) {
         <ul className="email-list">
       
            {emails.map((email) => (
-         <li key={email.id} className={`email-list-li ${email.id} ${email.isRead && 'bold'}`}> 
+         <li key={email.id} className={`email-list-li`}> 
           <Link className="preview-link" to={`/email/folder/${email.id}`} >
              <EmailPreview key={email.id} email={email} /></Link> </li>
       ))}

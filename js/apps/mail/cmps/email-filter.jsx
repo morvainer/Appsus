@@ -47,6 +47,7 @@ export class EmailFilter extends React.Component {
             <form className='email-filter' onSubmit={this.onFilter}>
                 <label htmlFor='search'></label>
                 <input  name='search' id='search' type='text' placeholder='search' value={search} onChange={()=>{this.handleChange(event)}}/>
+                <h3>Filter by</h3>
                 <select name="emailsReadFilter" value={emailsReadFilter.value} onChange={()=>{this.handleChange(event)}}>
                         <option value="all">all</option>
                         <option value="read">read</option>

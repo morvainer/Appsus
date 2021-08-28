@@ -145,22 +145,22 @@ function query( sortBy, filterBy, folderForFilter) {//gets object //emailsReadFi
          console.log(' emailsToShow after filter2 ',  emailsToShow);
         //  return Promise.resolve(emailsToShow)
 
-        if(folderForFilter){
-            // return Promise.resolve(emailsToShow)
+    //     if(folderForFilter){
+    //         // return Promise.resolve(emailsToShow)
         
-        if(folderForFilter==='sent'){
-            console.log('filter is sent');
-            filteredFolders = gEmails.filter(email => {
-                return (email.status==='sent')  
-         })
-        }else if(folderForFilter==='inbox'){
-            console.log('filter is inbox');
-            filteredFolders = gEmails.filter(email => {
-                return (email.status==='inbox') 
-        })
+    //     if(folderForFilter==='sent'){
+    //         console.log('filter is sent');
+    //         filteredFolders = gEmails.filter(email => {
+    //             return (email.status==='sent')  
+    //      })
+    //     }else if(folderForFilter==='inbox'){
+    //         console.log('filter is inbox');
+    //         filteredFolders = gEmails.filter(email => {
+    //             return (email.status==='inbox') 
+    //     })
         
-        }
-    }
+    //     }
+    // }
     return Promise.resolve(emailsToShow)
 
     }
@@ -234,7 +234,7 @@ function deleteEmail(emailId) {
 function countUnreadMails() {
     gReadMailsCount = 0;
     gEmails.forEach((mail) => {
-        if (mail.isRead) {
+        if (!mail.isRead&&(mail.status==='inbox')) {
             gReadMailsCount++
             // console.log('mail is:',mail);
         }
@@ -266,7 +266,7 @@ function _createEmail(toEmail, cc, bcc, subject, message) {
         message,
         isRead: false,
         sentAt: new Date((new Date()).valueOf() + 1*3600*24).toISOString().split('T')[0].split('-').reverse().join('-'),
-        status: 'sent',
+        status: 'inbox',
         isStared: false
         // new Date((new Date()).valueOf() + 1*3600*24).toISOString().split('T')[0].split('-').reverse().join('-'),
         // new Date().toISOString().split('T')[0].split('-').reverse().join('-'),

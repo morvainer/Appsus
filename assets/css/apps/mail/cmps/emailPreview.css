@@ -5,14 +5,65 @@
     margin: 10px;
     color: black;
     /* font-weight: bold; */
-  
+   
 }
+  
+  
+
 
 article.email-preview{
-    border: black solid 1px;
+    /* border: black solid 1px; */
     margin: 10px;
+    border-bottom: #3a3939 2px solid;
+   
 }
-
-.bold{
+.email-preview {
+  height: 3.5vh;
+  border-radius: 6px;
+}
+/* .bold{
     font-weight: bold;
+    
+  } */
+
+  /* .read{
+    background-color: rgb(201, 191, 191);
+
+  } */
+.mail-read{
+    background-color: rgb(209, 209, 209);
+    font-weight: normal;
+}
+.not-read{
+    font-weight: bold;
+    background-color: white;
+    
+  }
+.sent-mail{
+    background-color: white;
+}
+  /* .email-preview{
+    border: black solid 1px;
+  } */
+
+  .email-prev-date{
+    position: relative;
+    left: 46rem;
+    bottom: 1.5rem;
+    
+  }
+
+  .email-prev-from{
+    position: relative;
+    top: .5rem;
+  } 
+  
+  .email-prev-subject {
+    position: relative;
+    top: .5rem;
+  }
+
+  .email-prev-message{
+    position: relative;
+    top: .5rem;
   }

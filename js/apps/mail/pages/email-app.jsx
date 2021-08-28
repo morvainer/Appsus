@@ -138,21 +138,21 @@ export class EmailApp extends React.Component {
 
     return (
       <div className="email-app ">
-        <section>Filter by</section>
-        <section >
-            <EmailFilter onSetFilter={this.onSetFilter} />
-            </section>
-            <h3>Sort By</h3>
-        <section >
-            <EmailSort onSetSort={this.onSetSort} />
+        {/* <section className= "email-filter">Filter by</section> */}
+        <section className= "filt-sort flex" >
+            <EmailFilter  onSetFilter={this.onSetFilter} />
+            {/* </section> */}
+        {/* <section className= "email-sort"> */}
+            <h3 className= "email-sort-title">Sort by</h3>
+            <EmailSort className= "email-sort" onSetSort={this.onSetSort} />
             </section>
         {/* <button onClick={this.onAddEmail} >Add Email</button> */}
         {/* <Link to="/email/addEmail">Add Email </Link> */}
         {/* {console.log('email in render are:', emails)} */}
-        <h3>Folder: {this.state.folderForFilter}</h3>
+        {/* <h3>Folder: {this.state.folderForFilter}</h3> */}
         <EmailList emails={emails} />
         {/* {isMailSentShown &&<SentMailList emails={emails}/>} */}
-        <h2>This is section after email list</h2>
+        {/* <h2>This is section after email list</h2> */}
 
       </div>
     );
