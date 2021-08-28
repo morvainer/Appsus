@@ -80,22 +80,25 @@
         top: 12rem;
         left: 5.7rem;
         height: 30vh;
-        width: 16rem;
+        width: 60%;
         z-index: 5;
     }
-    /* .send-btn {
+    .send-btn {
         position: relative;
-        top: -5rem;
-        right: -0.7rem;
-        padding: 6px;
-        color: black;
+        top: unset;
+        right: unset;
+        left: unset;
+        bottom: 10%;
+        padding: 6px; 
+        margin-right: 6px; 
         border-bottom: black 1px solid;
-    } */
+    }
     .back-compose-btn {
         display: inline;
         position: relative;
-        bottom: 5rem;
-        left: 6.5rem;
+        bottom: 10%;
+        top: unset;
+        left: unset;
         margin-top: 12rem;
         text-decoration: none;
         padding: 6px;
@@ -105,8 +108,10 @@
     .message-input {
         position: relative;
         top: 5rem;
-        right: -0.8rem;
+        /* right: 50%; */
         width: 13rem;
+        left: unset;
+        right: -6%
     }
     /* .subject-input {
         position: relative;
