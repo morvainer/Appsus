@@ -80,15 +80,15 @@
         top: 12rem;
         left: 5.7rem;
         height: 30vh;
-        width: 60%;
+        width: 300px;
         z-index: 5;
     }
     .send-btn {
         position: relative;
-        top: unset;
-        right: unset;
+        top: 12.23rem;
+        right: 8rem;
         left: unset;
-        bottom: 10%;
+        bottom: 0;
         padding: 6px; 
         margin-right: 6px; 
         border-bottom: black 1px solid;
