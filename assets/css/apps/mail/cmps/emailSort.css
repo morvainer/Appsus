@@ -1,3 +1,5 @@
+@media only screen and (min-width: 1000px) {
+
 .email-sort {
     position: relative;
     left: 20rem;
@@ -26,4 +28,6 @@
         left: -21rem;
         top: .35rem;
     }
+}
+
 }
