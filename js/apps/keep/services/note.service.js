@@ -109,7 +109,7 @@ var gNotes = storageService.loadFromStorage(KEY) || [
     type: 'video',
     info: {
       label: 'React',
-      url: 'https://www.youtube.com/watch?v=N3AkSS5hXMA',
+      url: 'https://www.youtube.com/embed/Tn6-PIqc4UM',
     },
     backgroundColor: '#00d',
     isPinned: false,
@@ -319,7 +319,7 @@ function _createNotes() {
         type: 'video',
         info: {
           label: 'React',
-          url: 'https://www.youtube.com/watch?v=N3AkSS5hXMA',
+          url: 'https://www.youtube.com/embed/Tn6-PIqc4UM',
         },
         backgroundColor: '#00d',
         isPinned: false,

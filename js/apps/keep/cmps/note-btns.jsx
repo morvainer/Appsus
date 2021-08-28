@@ -1,3 +1,4 @@
+const { Link } = ReactRouterDOM;
 import { ColorInput } from './ColorInput.jsx';
 
 export class NoteButtons extends React.Component {
@@ -43,6 +44,8 @@ export class NoteButtons extends React.Component {
         <button onClick={this.toggleBackgrounds}>
           <i className='fas fa-palette'></i>
         </button>
+
+        {/* <Link to={`/email/compose/${note.id}`}>email</Link> */}
         {this.state.isColorsShown && <ColorInput handleChange={handleChange} />}
       </div>
     );
