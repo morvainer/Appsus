@@ -34,7 +34,7 @@ export class NoteTxt extends React.Component {
       <div className='note-txt-container'>
         <i className='fas fa-font icon'></i>
         <div className='note-txt'>
-          {!note.isEditOn && <h3 id={note.id}>{note.info.text}</h3>}
+          {!note.isEditOn && <p id={note.id}>{note.info.text}</p>}
           {note.isEditOn && (
             <form onSubmit={this.saveChanges}>
               <textarea value={text} onChange={this.handleChange} />

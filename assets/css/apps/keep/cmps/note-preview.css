@@ -7,10 +7,10 @@
   justify-content: space-between;
   gap: 10px;
   text-align: center;
-  overflow: hidden;
+  /* overflow: hidden; */
   break-inside: avoid;
   border-radius: 5px;
-  min-height: 200px;
+  /* min-height: 300px; */
   box-shadow: 0 0 3px 0 #000;
   /* transition: transform 1s; */
 }
@@ -27,6 +27,11 @@
   padding: 5px;
 }
 
+.note-txt-container p {
+  word-wrap: break-word;
+  width: 150px;
+}
+
 .note-video {
   width: 100%;
   display: flex;
@@ -40,6 +45,7 @@
 
 .note-todo li {
   padding: 5px;
+  list-style-type: disc;
 }
 
 .note-todo li:hover {
@@ -61,4 +67,10 @@
 .note-image img {
   object-fit: cover;
   height: 100%;
+  width: 100%;
+}
+
+.note-video iframe {
+  height: 100%;
+  width: 100%;
 }

@@ -33,6 +33,7 @@ export class NoteVideo extends React.Component {
 
     return (
       <div className='note-video'>
+        <i className='fab fa-youtube'></i>
         {!note.isEditOn && (
           <div>
             <h2>Video Note</h2>

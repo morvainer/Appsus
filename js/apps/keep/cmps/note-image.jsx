@@ -36,6 +36,7 @@ export class NoteImage extends React.Component {
 
     return (
       <div className='note-image'>
+        <i className='far fa-image'></i>
         {!note.isEditOn && (
           <div>
             <h3 id={note.id}>{note.info.title}</h3>
