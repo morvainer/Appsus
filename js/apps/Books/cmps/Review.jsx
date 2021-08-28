@@ -4,7 +4,6 @@ export function Review({ review, handleDelete }) {
       <h4>Name: {review.name}</h4>
       <h4>Review: {review.text}</h4>
       <div>
-        {console.log(review)}
         {review.rate >= 1 && <span className='star'>&#9733;</span>}
         {review.rate >= 2 && <span className='star'>&#9733;</span>}
         {review.rate >= 3 && <span className='star'>&#9733;</span>}

@@ -13,6 +13,17 @@
 .email-sort-title {
     position: relative;
     left: 30rem;
-    /* bottom: .3rem; */
+    top: 1.3rem;
     color: rgb(20, 20, 20);
+}
+
+@media only screen and (max-width: 600px) {
+    .email-sort-title {
+        display: none;
+    }
+    .email-sort select {
+        position: relative;
+        left: -21rem;
+        top: .35rem;
+    }
 }

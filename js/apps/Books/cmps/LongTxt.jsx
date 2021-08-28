@@ -20,7 +20,7 @@ export class LongTxt extends React.Component {
     const { isLongTxtShown } = this.state;
     if (!text) text = 'No Text';
     return (
-      <article className='long-text'>
+      <div className='long-text'>
         <p>
           {this.getTextToShow(text)}
           {text.length > 100 && (
@@ -29,7 +29,7 @@ export class LongTxt extends React.Component {
             </span>
           )}
         </p>
-      </article>
+      </div>
     );
   }
 }

@@ -1,18 +1,25 @@
-*{
+* {
     box-sizing: border-box;
-
 }
 
-.main-layout{
+.main-layout {
     max-width: 1000px;
-    /* max-height: 800px; */
     height: 600px;
     margin: 0 auto;
-    background-color: grey;
+    background-color: rgb(197, 137, 137);
+    border: rgb(61, 61, 61) 1px solid;
     width: 100%;
+    position: relative;
+    top: 1rem;
+    border-radius: 6px;
 }
 
-.email-app{
+.email-app {
     flex-grow: 3;
 }
 
+@media only screen and (max-width: 600px) {
+    .main-layout {
+        max-width: 350px;
+    }
+}
