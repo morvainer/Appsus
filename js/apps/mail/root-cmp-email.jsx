@@ -2,6 +2,7 @@ import { EmailCompose } from './cmps/email-compose.jsx';
 import { EmailApp } from './pages/email-app.jsx';
 import { Aside } from './cmps/aside.jsx';
 import { EmailDetails } from './cmps/email-details.jsx';
+// import { EmailCompose } from './cmps/email-compose.jsx';
 
 const { Route, Switch } = ReactRouterDOM;
 
@@ -31,6 +32,7 @@ export class RootCmpEmail extends React.Component {
         />
         {isComposeShown && <EmailCompose toggleCompose={this.toggleModal} />}
         <Switch>
+          <Route path='/email/compose/:noteid' component={EmailCompose} />
           <Route path='/email/:folder/:emailId' component={EmailDetails} />
           <Route
             isComposeShown={isComposeShown}
@@ -41,7 +43,7 @@ export class RootCmpEmail extends React.Component {
           <Route
             isComposeShown={isComposeShown}
             component={EmailApp}
-            className='email-app-root'
+            // className='email-app-root'
             path='/email'
           />
         </Switch>

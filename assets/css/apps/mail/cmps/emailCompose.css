@@ -3,11 +3,10 @@
   background-color: #eaebed;
   padding: 10px;
   position: absolute;
-  /* top: 40%; */
-  /* left: 28%; */
+
   margin: 0 auto;
-    bottom: 4%;
-    right: 6%;
+  bottom: 4%;
+  right: 6%;
   height: 30vh;
   width: 30rem;
   border-bottom: 2px solid black;
