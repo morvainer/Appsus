@@ -2,9 +2,9 @@
 .email-compose {
   background-color: #eaebed;
   padding: 10px;
-  position: absolute;
-  top: 17rem;
-  left: 7rem;
+  position: fixed;
+  top: 40%;
+  left: 28%;
   height: 30vh;
   width: 48rem;
   border-bottom: 2px solid black;
