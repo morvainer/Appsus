@@ -76,14 +76,14 @@ export class EmailDetails extends React.Component {
         const { currEmail } = this.state;
         if (!currEmail) return <h2>Loading...</h2>
         return (
-            <div>
-                details
-                <div>From: {currEmail. fromName}</div>
-                <div>To: {currEmail.toEmail}</div>
-                <div>Subject: {currEmail.subject}</div>
-                <div>Message: {currEmail.message}</div>
-                <button onClick={() => this.onDeleteEmail()}>Delete Email </button>
-                <Link to={`/email/inbox`} >go back</Link>
+            <div className="email-details-div">
+              
+                <div className="email-det-title"> {currEmail.subject}</div>
+                <div className="email-det-from">From: {currEmail. fromName} ({currEmail.fromEmail})</div>
+                {/* <div>{currEmail.fromEmail}</div> */}
+                <div className="email-det-message"> {currEmail.message}</div>
+                <button className="del-btn-emaildetails" onClick={() => this.onDeleteEmail()}>Delete Email </button>
+               <button className="back-btn-emaildetails"> <Link to={`/email/inbox`} ><span>go back</span></Link> </button>
             </div>
         )
     }

@@ -27,7 +27,7 @@ let gEmails = storageService.loadFromStorage(KEY) || [
         fromName: 'Amazon',
         fromEmail: 'Amazon@amazon.com',
         subject: 'Welcome',
-        message: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
+        message: 'Dear Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
         isRead: false,
         sentAt: date1,
         status: 'inbox'
@@ -51,7 +51,7 @@ let gEmails = storageService.loadFromStorage(KEY) || [
         fromName: 'Netflix',
         fromEmail: 'netflix@netflix.com',
         subject: 'Hello',
-        message: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
+        message: 'Dear Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
         isRead: false,
         sentAt: date1,
         status: 'inbox'
