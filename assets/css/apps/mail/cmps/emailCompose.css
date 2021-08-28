@@ -74,7 +74,7 @@
 }
 /* } */
 @media only screen and (max-width: 600px) {
-    /* .email-compose {
+    .email-compose {
         position: absolute;
         margin-left: unset;
         top: 12rem;
@@ -82,7 +82,7 @@
         height: 30vh;
         width: 16rem;
         z-index: 5;
-    } */
+    }
     /* .send-btn {
         position: relative;
         top: -5rem;
@@ -91,7 +91,7 @@
         color: black;
         border-bottom: black 1px solid;
     } */
-    /* .back-compose-btn {
+    .back-compose-btn {
         display: inline;
         position: relative;
         bottom: 5rem;
@@ -101,13 +101,13 @@
         padding: 6px;
         color: black;
         border-bottom: black 1px solid;
-    } */
-    /* .message-input {
+    }
+    .message-input {
         position: relative;
         top: 5rem;
         right: -0.8rem;
         width: 13rem;
-    } */
+    }
     /* .subject-input {
         position: relative;
         top: 2rem;
