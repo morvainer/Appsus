@@ -30,6 +30,10 @@
       position: relative;
   }
 
-  
+  .email-message{
+    position: relative;
+    left: 18rem;
+    bottom: 1rem;
+  }
 
  

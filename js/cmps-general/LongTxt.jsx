@@ -11,7 +11,7 @@ export class LongTxt extends React.Component {
     getTextToShow = (text) => {
         const { isLongTxtShown } = this.state
         if (isLongTxtShown) return text;// not right- need to be be false
-        return text.substring(0, 20);
+        return text.substring(0, 40);
     }
 
     onToggleText = () => {
@@ -23,7 +23,7 @@ export class LongTxt extends React.Component {
         const { isLongTxtShown } = this.state
         const { text } = this.props
 
-        return <p className="book-desc">
+        return <p className="email-message">
             {this.getTextToShow(text)}
             {/* {text.length > 10 && <span onClick={() => this.onToggleText()}>
                 {isLongTxtShown ? ' Less...' : ' More...'}</span>} */}
