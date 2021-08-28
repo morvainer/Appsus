@@ -5,10 +5,8 @@ export class EmailCompose extends React.Component {
 
     state = {
         to: '',
-        cc: '',
-        bcc: '',
         subject:'',
-        message: '',
+        message: ''
         
     }
     componentDidMount() {
@@ -27,14 +25,14 @@ export class EmailCompose extends React.Component {
       onAddEmail = (ev) =>{
           ev.preventDefault();
           const {toggleCompose } = this.props;
-          const { to, cc, bcc, subject, message } = this.state;
-        console.log(to, cc, bcc, subject, message);
-        emailService.addEmail(to, cc, bcc, subject, message);
+          const { to, subject, message } = this.state;
+        console.log(to, subject, message);
+        emailService.addEmail(to, subject, message);
         toggleCompose();
         // onBack();
       }
     render() {
-        const { to, cc, bcc, subject, message } = this.state;
+        const { to, subject, message } = this.state;
         const {toggleCompose } = this.props;
         return (
             

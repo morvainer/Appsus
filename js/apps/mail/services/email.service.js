@@ -10,8 +10,137 @@ export const emailService = {
 
 }
 const KEY = 'emailsDB';
+const gLoggedinUser = {
+    email: 'user@appsus.com',
+    fullname: 'Appsus'
+}
 // let gEmails = [];
-let gEmails = storageService.loadFromStorage(KEY) || []
+let date1 = new Date((new Date()).valueOf() + 1 * 3600 * 24).toISOString().split('T')[0].split('-').reverse().join('-')
+let date2 = new Date((new Date()).valueOf() + 2000 * 3600 * 24).toISOString().split('T')[0].split('-').reverse().join('-')
+let date3 = new Date((new Date()).valueOf() + 1000 * 3600 * 24).toISOString().split('T')[0].split('-').reverse().join('-')
+
+let gEmails = storageService.loadFromStorage(KEY) || [
+    {
+        id: utilService.makeId(),
+        // id: 1,
+        toEmail: gLoggedinUser.email,
+        fromName: 'Amazon',
+        fromEmail: 'Amazon@amazon.com',
+        subject: 'Welcome to Amazon',
+        message: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
+        isRead: false,
+        sentAt: date1,
+        status: 'inbox'
+    },
+    {
+        id: utilService.makeId(),
+        // id: 1,
+        toEmail: gLoggedinUser.email,
+        fromName: 'Apple',
+        fromEmail: 'Apple@apple.com',
+        subject: 'Apple',
+        message: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
+        isRead: false,
+        sentAt: date2,
+        status: 'inbox'
+    },
+    {
+        id: utilService.makeId(),
+        // id: 1,
+        toEmail: gLoggedinUser.email,
+        fromName: 'Apple',
+        fromEmail: 'Apple@apple.com',
+        subject: 'Apple',
+        message: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
+        isRead: false,
+        sentAt: date2,
+        status: 'inbox'
+    },
+    {
+        id: utilService.makeId(),
+        // id: 1,
+        toEmail: gLoggedinUser.email,
+        fromName: 'Apple',
+        fromEmail: 'Apple@apple.com',
+        subject: 'Apple',
+        message: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
+        isRead: false,
+        sentAt: date2,
+        status: 'inbox'
+    },
+    {
+        id: utilService.makeId(),
+        // id: 1,
+        toEmail: gLoggedinUser.email,
+        fromName: 'Apple',
+        fromEmail: 'Apple@apple.com',
+        subject: 'Apple',
+        message: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
+        isRead: false,
+        sentAt: date2,
+        status: 'inbox'
+    },
+    {
+        id: utilService.makeId(),
+        // id: 1,
+        toEmail: 'Muki',
+        fromName: gLoggedinUser.fullname,
+        fromEmail: gLoggedinUser.email,
+        subject: 'Hi Muki',
+        message: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
+        isRead: false,
+        sentAt: date2,
+        status: 'sent'
+    },
+    {
+        id: utilService.makeId(),
+        // id: 1,
+        toEmail: 'Muki',
+        fromName: gLoggedinUser.fullname,
+        fromEmail: gLoggedinUser.email,
+        subject: 'Hi Muki',
+        message: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
+        isRead: false,
+        sentAt: date2,
+        status: 'sent'
+    },
+    {
+        id: utilService.makeId(),
+        // id: 1,
+        toEmail: 'Muki',
+        fromName: gLoggedinUser.fullname,
+        fromEmail: gLoggedinUser.email,
+        subject: 'Hi Muki',
+        message: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
+        isRead: false,
+        sentAt: date2,
+        status: 'sent'
+    },
+    {
+        id: utilService.makeId(),
+        // id: 1,
+        toEmail: 'Muki',
+        fromName: gLoggedinUser.fullname,
+        fromEmail: gLoggedinUser.email,
+        subject: 'Hi Muki',
+        message: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
+        isRead: false,
+        sentAt: date2,
+        status: 'sent'
+    },
+    {
+        id: utilService.makeId(),
+        // id: 1,
+        toEmail: 'Muki',
+        fromName: gLoggedinUser.fullname,
+        fromEmail: gLoggedinUser.email,
+        subject: 'Hi Muki',
+        message: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
+        isRead: false,
+        sentAt: date2,
+        status: 'sent'
+    }
+]
 let gReadMailsCount = 0
 // let gEmails=[
 //     {id: 1, name: 'mor', title: 'this is a title'},
@@ -28,10 +157,7 @@ const email = {
     to: 'momo@momo.com'
 }
 
-const gLoggedinUser = {
-    email: 'user@appsus.com',
-    fullname: 'Appsus'
-}
+
 
 const criteria = {// for search?-------------
     status: 'inbox/sent/trash/draft',
@@ -66,113 +192,116 @@ function getEmailById(emailId) {
 // }
 
 
-function query( sortBy, filterBy, folderForFilter) {//gets object //emailsReadFilter ='read'
-    if (filterBy || sortBy || folderForFilter ) {
+function query(sortBy, filterBy, folderForFilter) {//gets object //emailsReadFilter ='read'
+    if (filterBy || sortBy || folderForFilter) {
         // console.log('folderForFilter in email service', folderForFilter);
         // console.log('query');
         // console.log('folderForFilter from service', folderForFilter);
         // console.log('filterby from service', filterBy);
         // console.log('sortby from service', sortBy);
         let { search, emailsReadFilter } = filterBy
-        let {  sortEmails } = sortBy
-        let emailsToShow =null;
-        let  sortedEmails=null;
-        let  filteredFolders=null;
+        let { sortEmails } = sortBy
+        let emailsToShow = null;
+        let sortedEmails = null;
+        let filteredFolders = null;
         emailsReadFilter = emailsReadFilter ? emailsReadFilter : 'all'
-        search = search? search : ''
-        sortEmails= sortEmails?  sortEmails: ''
+        search = search ? search : ''
+        sortEmails = sortEmails ? sortEmails : ''
         // const emailsToShow = gEmails.filter(email => email.subject.includes(search)) 
         // if(sortEmails === 'none'){
         //     sortedEmails = gEmails
         //     // _saveEmailsToStorage();
         // }
-         if (sortEmails === 'date') {
-            sortedEmails = sortEmailsByDate(gEmails) 
+        if (sortEmails === 'date') {
+            sortedEmails = sortEmailsByDate(gEmails)
             // console.log('gmails in sory by date is', gEmails);
             // _saveEmailsToStorage();
-         }else if(sortEmails === 'subject'){
-            sortedEmails = sortEmailsBySubject(gEmails) 
+        } else if (sortEmails === 'subject') {
+            sortedEmails = sortEmailsBySubject(gEmails)
             // console.log('gmails in sort by subject is', gEmails);
             // _saveEmailsToStorage();
 
-         }
+        }
         //  gEmails=sortedEmails
         // console.log(' sortedEmails',  sortedEmails);
 
-        filteredFolders=sortedEmails //filter gets the sort so it executes it//
+        filteredFolders = sortedEmails //filter gets the sort so it executes it//
         // emailsToShow=sortedEmails //filter gets the sort so it executes it//
         //  you dont return anything in the in the sort like you do in the filter--------------look HERE!!!!
         // gEmails=sortedEmails
         // console.log(' emailsToShow',  emailsToShow);
-        if(folderForFilter){
+        if (folderForFilter) {
             // return Promise.resolve(emailsToShow)
-        
-        if(folderForFilter==='sent'){
-            console.log('filter is sent');
-            filteredFolders = gEmails.filter(email => {
-                return (email.status==='sent')  
-         })
-        }else if(folderForFilter==='inbox'){
-            console.log('filter is inbox');
-            filteredFolders = gEmails.filter(email => {
-                return (email.status==='inbox') 
-        })
-        
+
+            if (folderForFilter === 'sent') {
+                console.log('filter is sent');
+                filteredFolders = gEmails.filter(email => {
+                    return (email.status === 'sent')
+                })
+            } else if (folderForFilter === 'inbox') {
+                console.log('filter is inbox');
+                filteredFolders = gEmails.filter(email => {
+                    return (email.status === 'inbox')
+                })
+
+            }
+        }
+        emailsToShow = filteredFolders
+        console.log(' emailsToShow after filter1 ', emailsToShow);
+        if (!filterBy) {
+            return Promise.resolve(emailsToShow)
+        } else {
+            if (search) {
+
+                emailsToShow = filteredFolders.filter(email => email.subject.includes(search))
+            }
+            if (emailsReadFilter === 'read') {
+                emailsToShow = filteredFolders.filter(email => {
+                    return (email.isRead) && (email.subject.includes(search))
+                })
+            }
+            else if (emailsReadFilter === 'unRead') {
+                emailsToShow = filteredFolders.filter(email => {
+                    return (!email.isRead) && email.subject.includes(search)
+                })
+            }
+            else if (emailsReadFilter === 'all') {
+                emailsToShow = filteredFolders.filter(email => {
+                    return (email) && email.subject.includes(search)
+                })
+            }
+
+            console.log(' emailsToShow after filter2 ', emailsToShow);
+            //  return Promise.resolve(emailsToShow)
+
+            //     if(folderForFilter){
+            //         // return Promise.resolve(emailsToShow)
+
+            //     if(folderForFilter==='sent'){
+            //         console.log('filter is sent');
+            //         filteredFolders = gEmails.filter(email => {
+            //             return (email.status==='sent')  
+            //      })
+            //     }else if(folderForFilter==='inbox'){
+            //         console.log('filter is inbox');
+            //         filteredFolders = gEmails.filter(email => {
+            //             return (email.status==='inbox') 
+            //     })
+
+            //     }
+            // }
+            return Promise.resolve(emailsToShow)
+
         }
     }
-    emailsToShow=filteredFolders
-    console.log(' emailsToShow after filter1 ',  emailsToShow);
-    if(!filterBy){
-        return Promise.resolve(emailsToShow)
-    }else{
-        if(search){
-
-            emailsToShow = filteredFolders.filter(email => email.subject.includes(search)) 
-        }
-         if(emailsReadFilter==='read'){
-            emailsToShow =filteredFolders.filter(email => {
-                 return (email.isRead) && (email.subject.includes(search))}) 
-         }
-         else if(emailsReadFilter=== 'unRead'){
-            emailsToShow =filteredFolders.filter(email => {
-                 return (!email.isRead) && email.subject.includes(search)})  
-         }  
-         else if(emailsReadFilter==='all'){
-            emailsToShow = filteredFolders.filter(email => {
-                 return (email) && email.subject.includes(search)}) 
-         }  
-        
-         console.log(' emailsToShow after filter2 ',  emailsToShow);
-        //  return Promise.resolve(emailsToShow)
-
-    //     if(folderForFilter){
-    //         // return Promise.resolve(emailsToShow)
-        
-    //     if(folderForFilter==='sent'){
-    //         console.log('filter is sent');
-    //         filteredFolders = gEmails.filter(email => {
-    //             return (email.status==='sent')  
-    //      })
-    //     }else if(folderForFilter==='inbox'){
-    //         console.log('filter is inbox');
-    //         filteredFolders = gEmails.filter(email => {
-    //             return (email.status==='inbox') 
-    //     })
-        
-    //     }
-    // }
-    return Promise.resolve(emailsToShow)
-
-    }
-}
-    console.log(' gmails in the end ',  gEmails);
+    console.log(' gmails in the end ', gEmails);
     return Promise.resolve(gEmails);
 }
 
 // && email.subject.includes(search)})
 
 function sortEmailsByDate(emails) {
-console.log('sorting by date');
+    console.log('sorting by date');
 
     return emails.sort(function (email1, email2) {
         if (email1.sentAt > email2.sentAt) {
@@ -188,19 +317,19 @@ console.log('sorting by date');
 
 function sortEmailsBySubject(emails) {
     console.log('sorting by subject');
-    
-        return emails.sort(function (email1, email2) {
-            if (email1.subject > email2.subject) {
-                return 1;
-            } if (email2.subject > email1.subject) {
-                return -1;
-            } else {
-                return 0;
-            }
-    
-        });
-    }
-    
+
+    return emails.sort(function (email1, email2) {
+        if (email1.subject > email2.subject) {
+            return 1;
+        } if (email2.subject > email1.subject) {
+            return -1;
+        } else {
+            return 0;
+        }
+
+    });
+}
+
 
 // (emailsReadFilter==='read' && email.isRead)  || 
 // (emailsReadFilter==='unRead' && !email.isRead)   
@@ -234,7 +363,7 @@ function deleteEmail(emailId) {
 function countUnreadMails() {
     gReadMailsCount = 0;
     gEmails.forEach((mail) => {
-        if (!mail.isRead&&(mail.status==='inbox')) {
+        if (!mail.isRead && (mail.status === 'inbox')) {
             gReadMailsCount++
             // console.log('mail is:',mail);
         }
@@ -254,20 +383,19 @@ function addEmail(to, cc, bcc, subject, message) {
 
 function _createEmail(toEmail, cc, bcc, subject, message) {
 
+    let date = new Date((new Date()).valueOf() + 1 * 3600 * 24).toISOString().split('T')[0].split('-').reverse().join('-')
     const email = {
         id: utilService.makeId(),
         // id: 1,
         toEmail,
         fromName: gLoggedinUser.fullname,
         fromEmail: gLoggedinUser.email,
-        cc,
-        bcc,
         subject,
         message,
         isRead: false,
-        sentAt: new Date((new Date()).valueOf() + 1*3600*24).toISOString().split('T')[0].split('-').reverse().join('-'),
-        status: 'inbox',
-        isStared: false
+        sentAt: date,
+        status: 'inbox'
+
         // new Date((new Date()).valueOf() + 1*3600*24).toISOString().split('T')[0].split('-').reverse().join('-'),
         // new Date().toISOString().split('T')[0].split('-').reverse().join('-'),
 
