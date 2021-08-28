@@ -18,13 +18,11 @@ export class NoteAdd extends React.Component {
         });
         break;
       case 'image':
-        console.log('image');
         this.setState({
           placeholder: 'Enter image URL...',
           type: 'image',
           active: 'image',
         });
-        console.log(this.state.active);
         break;
       case 'video':
         this.setState({

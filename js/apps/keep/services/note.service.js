@@ -11,7 +11,6 @@ export const noteService = {
   pinNote,
   saveEdit,
   toggleEdit,
-  getNotes,
   changeBackground,
   cloneNote,
 };
@@ -195,9 +194,7 @@ function _createTodoNote(note) {
 
 function _createVideoNote(note) {
   var { inputValue } = note;
-  console.log(inputValue);
   if (inputValue.includes('watch?v=')) {
-    console.log('in the if');
     inputValue = inputValue.replace('watch?v=', 'embed/');
   }
   return {
@@ -376,16 +373,12 @@ function saveEdit(note) {
 function getNoteIdx(noteId) {
   return Promise.resolve(gNotes.findIndex((note) => note.id === noteId));
 }
-function getNotes() {
-  console.log(gNotes);
-}
 
 function changeBackground(noteId, color) {
   getNoteIdx(noteId).then((Idx) => {
     gNotes[Idx].backgroundColor = color;
     _saveNotesToStorage();
   });
-  // console.log(noteIdx);
   return Promise.resolve();
 }
 
